@@ -1,0 +1,18 @@
+# Default owners for everything
+
+* @NYU-ITS/research-technology-services
+
+
+# Github settings
+
+.github/settings.yml @NYU-ITS/rts-codeowners
+
+# CODEOWNERS prevent renovate automerge since it will automatically ask for review
+
+# See documentation for more details: https://docs.renovatebot.com/automerge-configuration/
+
+# Solution: make files used by renovate owned by everyone
+
+# example:
+# **/*/package.json
+# **/*/yarn.lock

@@ -1,0 +1,55 @@
+# See https://developer.github.com/v3/repos/#edit for all available settings.
+repository:
+  name: repo-settings-test-1
+  description: The Test Bed for GH Repo Settings
+  private: false
+  has_issues: true
+  has_projects: true
+  has_wiki: true
+  default_branch: main
+  allow_squash_merge: true
+  squash_merge_commit_title: PR_TITLE # ensure PR title is used as squash merge message
+  # This will allow merge commits on branches, but only squash merges allowed on main (below)
+  allow_merge_commit: true
+  allow_rebase_merge: true
+  delete_branch_on_merge: true
+  enable_automated_security_fixes: true
+  enable_vulnerability_alerts: true
+
+branches:
+  - name: main
+    # Branch Protection settings. Set to null to disable
+    protection:
+      required_pull_request_reviews:
+        required_approving_review_count: 1
+        dismiss_stale_reviews: false
+        require_code_owner_reviews: true
+        dismissal_restrictions:
+          users: []
+          teams: []
+      # Required. Require status checks to pass before merging. Set to null to disable
+      required_status_checks:
+        # Required. Require branches to be up to date before merging.
+        strict: true
+        # Required. The list of status checks to require in order to merge into this branch
+        contexts:
+          [
+             ]
+      # Required. Allow owners to by pass restrictions for PRs that are just release notes or github settings changes which do not affect tests
+      # Enforce all configured restrictions for administrators. Set to true to enforce required status checks for repository administrators.
+      enforce_admins: false
+      # Commits pushed to matching branches must have verified signatures. Set to false to disable.
+      required_signatures: true
+      required_linear_history: true
+      allow_force_pushes: false
+      allow_deletions: false
+      # Required. Restrict who can push to this branch. Team and user restrictions are only available for organization-owned repositories. Set to null to disable.
+      restrictions:
+        apps: []
+        users: []
+        # This setting does not work for some reason. The teams restriction settings can be added manually or via GH CLI:
+        # `gh api /repos/USSF-ORBIT/ussf-portal-client/branches/main/protection/restrictions/teams -f teams[]=eng -f teams[]=design -f teams[]=code-owners`
+        teams:
+          [
+            'code-owners'
+          ]
