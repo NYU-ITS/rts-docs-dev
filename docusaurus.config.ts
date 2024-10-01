@@ -5,7 +5,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 const config: Config = {
   title: 'Research Technology Servcies',
   tagline: 'NYU',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/NYU.ico',
 
   // Set the production url of your site here
   url: 'https://your-docusaurus-site.example.com',
@@ -23,7 +23,7 @@ const config: Config = {
   onBrokenMarkdownLinks: 'warn',
 
   //https://docusaurus.io/docs/deployment#docusaurusconfigjs-settings
-  trailingSlash: 'true',
+  trailingSlash: true,
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -68,26 +68,21 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/NYU.svg',
     navbar: {
-      title: 'NYU-RTS',
+      title: 'Research Technology Services',
       logo: {
         alt: 'My Site Logo',
-        src: 'img/logo.svg',
+        src: 'img/NYU.svg',
       },
       items: [
         {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
-          position: 'left',
+          position: 'right',
           label: 'HPC',
         },
         { to: '/blog', label: 'Announcements', position: 'right' },
-        {
-          href: 'https://github.com/facebook/docusaurus',
-          label: 'GitHub',
-          position: 'right',
-        },
       ],
     },
     footer: {
