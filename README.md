@@ -1,41 +1,20 @@
-# Website
+# Research Technology Services @ NYU
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
-
-### Installation
-
+## Deploy locally:
+On Linux/Macos run:
 ```
-$ yarn
+curl -fsSL https://pixi.sh/install.sh | bash
 ```
+or look for alternate methods/platforms [here](https://prefix.dev/docs/pixi/overview#installation).
 
-### Local Development
-
+### Setup environment:
 ```
-$ yarn start
+pixi shell
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
-
-### Build
-
+### Build and serve:
 ```
-$ yarn build
+npm ci
+npm run build
+npm run serve
 ```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
-```
-
-Not using SSH:
-
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
-```
-
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
