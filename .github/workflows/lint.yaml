@@ -1,0 +1,27 @@
+name: Remark-lint
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  remark-lint:
+    name: runner / remark-lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: install remark presets
+        run: |
+          npm install remark-preset-lint-recommended 
+          npm install remark-mdx
+        shell: bash
+      - name: remark-lint
+        uses: reviewdog/action-remark-lint@v5
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          reporter: github-pr-check
+          remark_args: "--use=remark-preset-lint-recommended --use=remark-mdx"
