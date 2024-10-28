@@ -1,0 +1,30 @@
+name: Link checker
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    name: Link checker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: MDX Broken Link Checker
+        uses: KaiSpencer/gh-action-check-broken-links@v0
+        with:
+          # Required: The base URL to check links against
+          # For example: /pages/foo.mdx will be checked against https://mysite.com/foo
+          baseUrl: 'https://nyu-its.github.io/rts-docs-dev/'
+  
