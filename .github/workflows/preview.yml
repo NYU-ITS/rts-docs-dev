@@ -10,6 +10,7 @@ on:
       - closed
 
 permissions:
+  contents: write
   pages: write
 
 concurrency: preview-${{ github.ref }}
