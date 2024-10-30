@@ -30,7 +30,7 @@ If you run Windows 11, you can install WSL, and then install any Linux distribut
 
     Instructions on WSL installation: https://learn.microsoft.com/en-us/windows/wsl/install
 
-:::tip[Tips]
+:::tip
 
     One of many options to get terminal that support tabs, etc. is to install 'Windows Terminal' from Microsoft Store.
 
