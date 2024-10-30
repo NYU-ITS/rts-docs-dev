@@ -9,6 +9,9 @@ on:
       - synchronize
       - closed
 
+permissions:
+  pages: write
+
 concurrency: preview-${{ github.ref }}
 
 jobs:
