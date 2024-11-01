@@ -43,7 +43,9 @@ A common issue that can occur is receiving an error that the Open OnDemand page 
 
 In Chrome, this can be done by navigating to this page in your settings:
 
-[chrome://settings/content/all?searchSubpage=ood.hpc.nyu.edu&search=site+data]
+```sh
+chrome://settings/content/all?searchSubpage=ood.hpc.nyu.edu&search=site+data
+```
 
 The link above will automatically search for the Open OnDemand site data and cookies. You can then simply click on the trashcan icon to delete the site cache.
 
