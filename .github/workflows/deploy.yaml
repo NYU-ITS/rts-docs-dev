@@ -25,7 +25,7 @@ jobs:
       - run: npm i && npm run build
       - uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: build
+          folder: .
           branch: gh-pages
           clean-exclude: pr-preview
           force: false
