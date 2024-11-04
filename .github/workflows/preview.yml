@@ -33,6 +33,6 @@ jobs:
         uses: rossjrw/pr-preview-action@v1
         with:
           preview-branch: gh-pages
-          source-dir: ./build/
+          source-dir: .
           umbrella-dir: pr-preview
           action: auto
