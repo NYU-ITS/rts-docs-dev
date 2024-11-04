@@ -6,7 +6,7 @@
         {
             "label": "serve",
             "type": "shell",
-            "command": "${workspaceFolder}/.pixi/envs/default/bin/npm run start",
+            "command": "${workspaceFolder}/.pixi/envs/default/bin/pnpm serve",
             "options": {
                 "env": {
                     "PATH": "$PATH:${workspaceFolder}/.pixi/envs/default/bin"
