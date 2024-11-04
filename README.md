@@ -5,7 +5,7 @@ On Linux/Macos run:
 ```
 curl -fsSL https://pixi.sh/install.sh | bash
 ```
-or look for alternate methods/platforms [here](https://prefix.dev/docs/pixi/overview#installation).
+or look for alternate methods/platforms [here](https://pixi.sh/latest/#installation).
 
 ### Setup environment:
 ```
