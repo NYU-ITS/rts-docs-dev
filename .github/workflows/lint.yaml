@@ -21,10 +21,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+
       - name: install remark presets
         run: |
-          npm install remark-preset-lint-recommended 
-          npm install remark-mdx
+          pnpm install remark-preset-lint-recommended 
+          pnpm install remark-mdx
         shell: bash
       - name: remark-lint
         uses: reviewdog/action-remark-lint@v5

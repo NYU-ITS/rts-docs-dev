@@ -19,8 +19,8 @@ jobs:
 
       - name: Install and Build
         run: |
-          npm ci
-          npm run build
+          pnpm install --frozen-lockfile
+          pnpm build
       - uses: actions/checkout@v4
       - run: npm i && npm run build
       - uses: JamesIves/github-pages-deploy-action@v4

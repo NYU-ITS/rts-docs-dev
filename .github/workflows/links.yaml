@@ -14,12 +14,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+      
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-          cache: npm
 
       - name: MDX Broken Link Checker
         uses: KaiSpencer/gh-action-check-broken-links@v0
