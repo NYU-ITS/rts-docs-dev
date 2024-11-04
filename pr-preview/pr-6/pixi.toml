@@ -1,0 +1,13 @@
+[project]
+channels = ["conda-forge"]
+description = "Add a short description here"
+name = "rts-docs-dev"
+platforms = ["osx-arm64", "linux-64", "linux-aarch64"]
+version = "0.1.0"
+
+[tasks]
+
+[dependencies]
+nodejs = ">=22.9.0,<23"
+npx = ">=0.1.1,<0.2"
+pnpm = ">=9.11.0,<10"
