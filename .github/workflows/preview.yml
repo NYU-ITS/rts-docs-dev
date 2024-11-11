@@ -9,10 +9,12 @@ on:
       - synchronize
       - closed
 
-permissions:
-  pull-requests: write
-  contents: write
-  pages: write
+permissions: write-all
+# Re-edit this to see what's needed
+#permissions:
+#  pull-requests: write
+#  contents: write
+#  pages: write
 
 concurrency: preview-${{ github.ref }}
 
