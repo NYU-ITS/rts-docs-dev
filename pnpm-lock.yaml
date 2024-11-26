@@ -15,19 +15,19 @@ importers:
         specifier: ^3.6.3
         version: 3.6.3(@algolia/client-search@5.12.0)(@mdx-js/react@3.1.0(@types/react@18.3.12)(react@18.3.1))(@types/react@18.3.12)(acorn@8.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(search-insights@2.17.2)(typescript@5.5.4)
       '@mdx-js/react':
-        specifier: ^3.0.0
+        specifier: ^3.1.0
         version: 3.1.0(@types/react@18.3.12)(react@18.3.1)
       clsx:
-        specifier: ^2.0.0
+        specifier: ^2.1.1
         version: 2.1.1
       prism-react-renderer:
-        specifier: ^2.3.0
+        specifier: ^2.4.0
         version: 2.4.0(react@18.3.1)
       react:
-        specifier: ^18.0.0
+        specifier: ^18.3.1
         version: 18.3.1
       react-dom:
-        specifier: ^18.0.0
+        specifier: ^18.3.1
         version: 18.3.1(react@18.3.1)
     devDependencies:
       '@docusaurus/module-type-aliases':
@@ -40,7 +40,7 @@ importers:
         specifier: ^3.6.3
         version: 3.6.3(acorn@8.14.0)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       typescript:
-        specifier: ~5.5.2
+        specifier: ~5.5.4
         version: 5.5.4
 
 packages:
