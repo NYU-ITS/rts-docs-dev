@@ -1,0 +1,34 @@
+---
+sidebar_position: 1
+---
+
+# Training and Support
+
+## HPC Training
+
+### Introductory Videos
+- Watch  [videos](https://www.youtube.com/watch?v=0pP_TeKH1MI&list=PL5l6Qz3Xhfi9Jn9-iMKJisYsSW5tRzPSd&t=3s) prepared by students likey you
+
+### Classes Offered by Library
+
+Please find the topic you are interested in, date of the class, and sign up:
+- All classes offered via the [library calendar system can be viewed here](http://nyu.libcal.com/calendar/classes/?cid=1564&t=d&d=0000-00-00&cal=1564) or (in [calendar view](https://nyu.libcal.com/))
+
+- HPC-specific classes [can be viewed here](https://nyu.libcal.com/calendar?cid=1564&t=d&d=0000-00-00&cal=1564&ct=6016)
+
+## XSEDE Workshops
+
+<span style={{ color: "red" }}>** broken links in this section **</span>
+
+- Workshops on High Performance Computing topics
+- More info: XSEDE HPC Workshop Calendar
+
+
+## Tutorials (offered by HPC Team)
+
+- Tutorials
+
+## Support
+
+see the [Support](./support.md) page for assistance and consultation requests
+
