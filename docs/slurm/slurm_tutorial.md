@@ -33,7 +33,7 @@ In NYU HPC clusters the users coming from many departments with various discipli
 
 The Slurm software system is a resource manager and a job scheduler, which is designed to allocate resources and schedule jobs. Slurm is an open-source software, with a large user community, and has been installed on many top 500 supercomputers.
 
-- This tutorial assumes you have a NYU HPC account. If not, you may find the steps to apply for an account on the [Getting and renewing an account page].
+- This tutorial assumes you have a NYU HPC account. If not, you may find the steps to apply for an account on the [Getting and renewing an account page](../accessing_hpc/getting_and_renewing_an_account.md).
 
 - It also assumes you are comfortable with Linux command-line environment. To learn about linux please read [Tutorial 1].
 
