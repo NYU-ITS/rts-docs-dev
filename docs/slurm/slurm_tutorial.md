@@ -33,11 +33,15 @@ In NYU HPC clusters the users coming from many departments with various discipli
 
 The Slurm software system is a resource manager and a job scheduler, which is designed to allocate resources and schedule jobs. Slurm is an open-source software, with a large user community, and has been installed on many top 500 supercomputers.
 
+<<<<<<< HEAD
 - This tutorial assumes you have a NYU HPC account. If not, you may find the steps to apply for an account on the [Getting and renewing an account page](../accessing_hpc/getting_and_renewing_an_account.md).
+=======
+- This tutorial assumes you have a NYU HPC account. If not, you may find the steps to apply for an account on the \[Getting and renewing an account page].
+>>>>>>> ecf302a (Added: HPC Foundations Page, SSH & X11 Page and Slurm Commands summary Page)
 
-- It also assumes you are comfortable with Linux command-line environment. To learn about linux please read [Tutorial 1].
+- It also assumes you are comfortable with Linux command-line environment. To learn about linux please read \[Tutorial 1].
 
-- Please review the [Hardware Specs page] for more information on Greene's hardware specifications.
+- Please review the \[Hardware Specs page] for more information on Greene's hardware specifications.
 
 ## Slurm Commands
 
@@ -206,7 +210,7 @@ srun --time=1:30:00 --mem=3GB --gres=gpu:1 --pty /bin/bash
 
 Once the job begins you will notice your prompt change, for example:
 
-```sh
+```shell-session
 [mdw303@log-3 ~]$ srun --pty /bin/bash
 srun: job 7864254 queued and waiting for resources
 srun: job 7864254 has been allocated resources

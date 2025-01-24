@@ -1,5 +1,6 @@
 ---
 sidebar_position: 3
+toc_max_heading_level: 2
 ---
 
 # Slurm - Submitting Jobs
@@ -259,7 +260,7 @@ sbatch --nodes=2 --ntasks-per-node=4 my_script.sh
 - `--export=VAR1,VAR2="some value",VAR3`
     - Pass variables to the job, either with a specific value (the `VAR=` form) or from the submitting environment ( without "`=`" )
 
-    - `--get-user-env`[=timeout][mode]
+    - `--get-user-env`\[=timeout]\[mode]
     - Run something like "su `-` \<username\> -c /usr/bin/env" and parse the output. Default timeout is 8 seconds. The mode value can be "S", or "L" in which case "su" is executed with "`-`" option.
 
 ### Options to request compute resources

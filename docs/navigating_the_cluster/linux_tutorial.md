@@ -1,3 +1,7 @@
+---
+toc_max_heading_level: 2
+sidebar_position: 1
+---
 
 # Linux Tutorial
 
@@ -19,7 +23,7 @@
 
 ## Getting a new Account on the NYU HPC cluster
 
-It is expected of everyone to have an NYU HPC Cluster Account. If not follow the steps from [Getting and Renewing an Account page] to apply for a new account.
+It is expected of everyone to have an NYU HPC Cluster Account. If not follow the steps from \[Getting and Renewing an Account page] to apply for a new account.
 
 ## Getting Started on HPC Greene Cluster
 
@@ -39,8 +43,8 @@ To login into the HPC cluster ( Greene ), simply use:
 ssh <NYUNetID>@greene.hpc.nyu.edu
 ```
 
-- To access from Windows Operating System with PuTTY, please follow the steps at [Accessing HPC via windows page]
-- Or To connect to VPN from Linux/Mac OS, please follow the steps at [Accessing HPC via linux/MacOS page]
+- To access from Windows Operating System with PuTTY, please follow the steps at \[Accessing HPC via windows page]
+- Or To connect to VPN from Linux/Mac OS, please follow the steps at \[Accessing HPC via linux/MacOS page]
 
 From an off-campus location or without a VPN (outside NYU-NET), logging in to the HPC clusters is a 2 step process:
 
@@ -50,7 +54,7 @@ From an off-campus location or without a VPN (outside NYU-NET), logging in to th
 ssh <NYUNetID>@gw.hpc.nyu.edu
 ```
 
-_Windows users will need to use Putty, see [Accessing HPC via windows page]_
+_Windows users will need to use Putty, see \[Accessing HPC via windows page]_
 
 2) Next login to the cluster. For Greene, this is done with:
 

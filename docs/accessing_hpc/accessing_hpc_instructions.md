@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Accessing HPC - Instructions
+# Accessing HPC Instructions
 
 [putty link]: https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
 
@@ -18,7 +18,7 @@ sidebar_position: 2
 
 [ssh instructions keygen link]: https://www.ssh.com/ssh/keygen/
 
-[ood access shell giff]: https://lh5.googleusercontent.com/BsgYFUagg9DT-UpizI7eOEC-A_7ZdKqtU4Gxstqy3SPkccHNJPK7g0Im35LMfxrTIiY3bwSGWQEdBpzeSoKHHy3d2M2Z9NyLNNJGKI9jI--6_bz3lUs8JnuWgXDgxXIxBQ=w1280
+[ood access shell giff]: https://lh5.googleusercontent.com/dY3m_SZNZ1S5iUqFVZAuLScIcYy61tL0zz1mPVOd8USQM6C-oZZ0XtbXBIT8JmxjP5a9UNWspXjTdGfuf7pLXmQ3bTkCTTMZd1t6v0naOo9sXq86rq2DsV-8hQ3SAJphBw=w1280
 
 
 - [Introduction](#introduction)
@@ -94,7 +94,7 @@ Instead of typing your password every time you need to log in, you can also spec
 
 - Next time you will log into cluster no password will be required
 
-For additional recommendations on how to configure your SSH sessions, see the [ssh configuring and x11 forwarding page].
+For additional recommendations on how to configure your SSH sessions, see the \[ssh configuring and x11 forwarding page].
 
 ## PuTTY (Only for Windows)
 
