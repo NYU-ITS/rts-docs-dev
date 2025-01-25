@@ -62,11 +62,11 @@ This method was tested on few Linux distributions and settings however is not gu
 
 ## Getting a new account on the NYU HPC clusters
 
-To request an NYU HPC account please log in to [NYU Identity Management service][nyu ims link] and follow the link to "Request HPC account". We have a walkthrough of how to [request an account through IIQ]. If you are a student, alumni or an external collaborator you need an NYU faculty sponsor.
+To request an NYU HPC account please log in to [NYU Identity Management service][nyu ims link] and follow the link to "Request HPC account". We have a walkthrough of how to \[request an account through IIQ]. If you are a student, alumni or an external collaborator you need an NYU faculty sponsor.
 
 ## Renewing HPC account
 
-Each year, non-faculty users must renew their HPC account by filling in the account renewal form from the [NYU Identity Management service][nyu ims link]. See [Renewing your HPC account with IIQ] for a walkthrough of the process.
+Each year, non-faculty users must renew their HPC account by filling in the account renewal form from the [NYU Identity Management service][nyu ims link]. See \[Renewing your HPC account with IIQ] for a walkthrough of the process.
 
 ## Information for faculty who sponsor HPC users
 
@@ -98,13 +98,13 @@ HPC faculty sponsors are expected to:
 
 - Respond promptly to account-related requests from HPC staff
 
-Each year, your sponosred users must renew their account. You will need to approve the renewal by logging into the [NYU Identity Management service][nyu ims link]. [We have a walkthrogh of the approval process].
+Each year, your sponosred users must renew their account. You will need to approve the renewal by logging into the [NYU Identity Management service][nyu ims link]. \[We have a walkthrogh of the approval process].
 
 ## Bulk HPC Accounts for Courses
 
 HPC bulk accounts request is disabled for HPC sponsors.
 
-- If you would like to use JupyterHub for your classes, please don't submit the form below, read [Jupyter Hub page] instead (the link to an intake form is also there)
+- If you would like to use JupyterHub for your classes, please don't submit the form below, read \[Jupyter Hub page] instead (the link to an intake form is also there)
 
 - please fill out this [Request form][hpc account request form link] for the course, we'll create HPC accounts for the class per request
 
@@ -112,13 +112,13 @@ HPC bulk accounts request is disabled for HPC sponsors.
 
 ## Getting an account with one of NYU partners
 
-NYU partners ([look for the list here]) with many state and national facilities with a variety of HPC systems and expertise. [Contact us] for assistance setting up a collaboration with any of these.
+NYU partners (\[look for the list here]) with many state and national facilities with a variety of HPC systems and expertise. \[Contact us] for assistance setting up a collaboration with any of these.
 
 ## Non-NYU Researchers
 
 If you are part of collaboration with NYU researcher you need to obtain an **affiliate** status before applying for an NYU HPC account. A full-time NYU faculty member must sponsor a non-NYU collaborator for an affiliate status.
 
-Please see [instructions for affiliate management][affiliate and account management link] (NYU NetID login is required to follow the link). [Please read instructions about sponsoring external collaborators].
+Please see [instructions for affiliate management][affiliate and account management link] (NYU NetID login is required to follow the link). \[Please read instructions about sponsoring external collaborators].
 
 
 ## Access to cluster after Graduation
