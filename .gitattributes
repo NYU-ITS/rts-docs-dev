@@ -1,2 +1,5 @@
 # GitHub syntax highlighting
 pixi.lock linguist-language=YAML linguist-generated=true
+
+# Use current branch's lock file when there are conflicts with main branch
+pnpm-lock.yaml merge=theirs
