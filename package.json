@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
+    "lint": "remark . --use=remark-preset-lint-recommended --use=remark-mdx",
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "build": "docusaurus build",
@@ -21,7 +22,11 @@
     "clsx": "^2.1.1",
     "prism-react-renderer": "^2.4.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "remark-cli": "^12.0.1",
+    "remark-lint-no-html": "^4.0.0",
+    "remark-mdx": "^3.1.0",
+    "remark-preset-lint-recommended": "^7.0.0"
   },
   "devDependencies": {
     "@docusaurus/module-type-aliases": "^3.7.0",
