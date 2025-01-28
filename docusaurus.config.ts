@@ -121,8 +121,9 @@ const config: Config = {
       copyright: `Built with Docusaurus!`,
     },
     prism: {
-      theme: prismThemes.github,
-      darkTheme: prismThemes.dracula,
+      theme: prismThemes.oneLight,
+      darkTheme: prismThemes.palenight,
+      additionalLanguages: ['bash', 'shell-session', 'lua'],
     },
   } satisfies Preset.ThemeConfig,
 };
