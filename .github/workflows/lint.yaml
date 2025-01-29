@@ -25,11 +25,11 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v4
 
-      - name: install remark presets
-        run: |
-          pnpm install remark-preset-lint-recommended 
-          pnpm install remark-mdx
-        shell: bash
+      # - name: install remark presets
+      #   run: |
+      #     pnpm install remark-preset-lint-recommended 
+      #     pnpm install remark-mdx
+      #   shell: bash
       - name: remark-lint
         uses: reviewdog/action-remark-lint@v5
         with:
