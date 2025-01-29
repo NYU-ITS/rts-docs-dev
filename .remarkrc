@@ -1,0 +1,7 @@
+{
+    "plugins": [
+        "remark-preset-lint-recommended",
+        "remark-mdx",
+        "remark-lint-no-html"
+    ]
+}
