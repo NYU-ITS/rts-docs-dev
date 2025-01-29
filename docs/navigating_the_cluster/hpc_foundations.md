@@ -7,7 +7,7 @@ sidebar_position: 2
 
 The goal of this exercise is to help you understand the fundamentals **_A to Z_** on effecively navigating the cluster for your research or academic projects.
 
-Before we begin this exercise please make sure you have access to the NYU HPC cluster, if not please review the \[Accessing HPC page].
+Before we begin this exercise please make sure you have access to the NYU HPC cluster, if not please review the [Accessing HPC page](../accessing_hpc/accessing_hpc.md).
 
 Login to the Greene cluster with ssh at :
 > Accessible under NYU Net ( either via VPN or within campus network )
@@ -120,7 +120,7 @@ Similar to `/home`, users have access to multiple filesystems that are :
 | /scratch   | /scratch/**Net_ID**/ | General Storage | $SCRATCH
 | /archive   | /archive/**Net_ID**/ | Cold Storage    | $ARCHIVE
 
-You will find more details about these filesystems at \[Greene Storage Types page].
+You will find more details about these filesystems at [Greene Storage Types page](../storage_specs.mdx).
 
 You can jump to your `/scratch` directory at `/scratch/Net_ID/` with the `cd` command as `cd /scratch/Net_ID`, Or you could simple use the `$SCRATCH` environment variable as:
 
@@ -203,6 +203,7 @@ os.execute("hostname")
 print("hello, world")
 [pp2959@log-3 ~]$
 ```
+
 
 > Here `os.execute()` executes a shell command, in this example the command `hostname` to print the name of the host on which the script is being executed. Followed by printing the message `hello, world`
 
@@ -422,8 +423,6 @@ hello, world
 > 3. Once the `job` gets `scheduled`, your program `lua hello.lua` gets run on a chosen `compute node(s)` and the program's output is printed back to your console 
 > 
 > 4. Based on your output, you may notice the name of the compute node that this program runs on, the node `cm001.hpc.nyu.ed` in this example is a CPU only node, you may notice a different node. You can find more details about the \[specific nodes here].
-
-<br/>
 
 **_Now how do we determine Or specify the amount of resources needed to run our `hello.lua` script ?_**
 
@@ -759,6 +758,7 @@ srun: job 56142474 has been allocated resources
 >
 > - `--label` labels standard output of tasks based on task ID from 0 to N.
 
+
 So far we understood that slurm chooses '_on which nodes our programs should run on_' based on it's scheduling decisions, however it also provides more control like specifying explicitly on which `partition` we can run our programs on.
 
 Here partitions are similar nodes grouped together as a list. For example H100 nodes are grouped together as a partition named `H100_Partition`. Whenever we submit a job request for H100s then nodes sequentially along this partition are reserved and our job is scheduled on them.
@@ -774,8 +774,6 @@ To specify a particular partition, you can use the `--partition` option as shown
 ```sh
 srun --partition=cs --nodes=2 --tasks-per-node=1 --cpus-per-task=4 --mem=4GB --time=05:00 lua hello.lua
 ```
-
-
 
 > **_(A) SLURM OVERVIEW_**
 > 
@@ -969,6 +967,7 @@ srun --time=02:00 /bin/bash -c "echo '(step 1): hello, world'; "
 ```
 
 Every `srun` declared in the `batch script` is called a `job step` that will get it's own `step id` from 0 to N.
+
 
 Modify `hello.sbatch` file with the above code and submit the batch job:
 
