@@ -1,6 +1,0 @@
-# Ignore all Markdown files in the blog directory
-blog/**
-
-# Ignore a specific file
-docs/README.md
-
