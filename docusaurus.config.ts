@@ -46,8 +46,6 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
@@ -75,6 +73,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
+    docs: { sidebar : { hideable: true } },
     image: 'img/NYU.svg',
     navbar: {
       title: 'Research Technology Services',
