@@ -120,7 +120,7 @@ Similar to `/home`, users have access to multiple filesystems that are :
 | /scratch   | /scratch/**Net_ID**/ | General Storage | $SCRATCH
 | /archive   | /archive/**Net_ID**/ | Cold Storage    | $ARCHIVE
 
-You will find more details about these filesystems at [Greene Storage Types page](../storage_specs.mdx).
+You will find more details about these filesystems at [Greene Storage Types page](../spec_sheet.mdx).
 
 You can jump to your `/scratch` directory at `/scratch/Net_ID/` with the `cd` command as `cd /scratch/Net_ID`, Or you could simple use the `$SCRATCH` environment variable as:
 
