@@ -84,9 +84,33 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'genaiSidebar',
+          position: 'right',
+          label: 'GenAI',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'hpcSidebar',
           position: 'right',
           label: 'HPC',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'hsrnSidebar',
+          position: 'right',
+          label: 'HSRN',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'rtcSidebar',
+          position: 'right',
+          label: 'RTC',
+        },
+        {
+          type: 'docSidebar',
+          sidebarId: 'srdeSidebar',
+          position: 'right',
+          label: 'SRDE',
         },
         { to: '/blog', label: 'Announcements', position: 'right' },
       ],

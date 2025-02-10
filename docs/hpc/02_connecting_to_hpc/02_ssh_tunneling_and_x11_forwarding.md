@@ -1,28 +1,30 @@
----
-sidebar_position: 3
----
-
 # SSH Tunneling and X11 Forwarding
 
 [xquartz]: https://www.xquartz.org/
 
-## Avoiding Man in the Middle Warning
+## Avoiding Man in the Middle Warning.
 
 If you see this warning:
 
-```sh
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
-@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+:::warning
 
+```sh
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+@    WARNING: REMOTE HOST IDENTIFICATION HAS CHANGED!     @
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 IT IS POSSIBLE THAT SOMEONE IS DOING SOMETHING NASTY!
 Someone could be eavesdropping on you right now (man-in-the-middle attack)!
 It is also possible that a host key has just been changed.
 ```
 
-Do not be alarmed - this is an issue that occurs because the cluster has multiple login nodes (log-1, log-2, and log-3) that greene.hpc.nyu.edu resolves to. 
+:::
+
+Do not be alarmed - this is an issue that occurs because the cluster has multiple login nodes (`log-1`, `log-2`, and `log-3`) that `greene.hpc.nyu.edu` resolves to. 
 
 To avoid this warning, you can add these lines to your SSH configuration file. Open `~/.ssh/config` and place the following lines in it:
+
+
+:::tip
 
 ```sh
 Host greene.hpc.nyu.edu dtn.hpc.nyu.edu gw.hpc.nyu.edu
@@ -34,6 +36,8 @@ Host greene.hpc.nyu.edu dtn.hpc.nyu.edu gw.hpc.nyu.edu
   LogLevel ERROR
 ```
 
+:::
+
 The above will also fix SSH timeout errors by extending the `ServerAliveInterval` argument.
 
 ## SSH Tunneling (Mac, Linux)
@@ -42,7 +46,7 @@ Setting up your workstation for SSH tunneling will make logging in and transferr
 
 Linux users have X set up already. Mac users can download and install [XQuartz][xquartz].
 
-### 1. Set up a reusable tunnel 
+### Set up a reusable tunnel 
 
 To avoid repeatedly setting up a tunnel, you can write the details of the tunnel into your SSH configuration file. Using your favorite editor, open the file `~/.ssh/config` and place the following lines in it: 
 
@@ -86,16 +90,20 @@ chmod 700 $HOME/.ssh
 chmod 600 ~/.ssh/*
 ```
 
-### 2. Start the tunnel
+### Start the tunnel
 
 To create the tunnel, ssh to it with the following command:
 ```sh
 ssh hpcgwtunnel
 ```
 
-> **_IMPORTANT NOTE:_** You must leave this window open for the tunnel to remain open. It is best to start a new terminal window for subsequent logins. 
+:::tip
 
-### 3. Log in via the tunnel
+You must leave this window open for the tunnel to remain open. It is best to start a new terminal window for subsequent logins. 
+
+:::
+
+### Log in via the tunnel
 
 Open a new terminal window and use ssh to log in to the cluster, as shown below.
 
@@ -119,7 +127,7 @@ This is the equivalent to running "ssh hpcgwtunnel" in the reusable tunnel instr
 
 ## Tunneling (Windows)
 
-### Step 1: Creating the tunnel
+### Creating the tunnel
 
 1. First open Putty and prepare to log in to gw.hpc.nyu.edu. If you saved your session during that process, you can load it by selecting from the "Saved Sessions" box and hitting "Load". Don't hit "Open" yet!
 
@@ -133,9 +141,10 @@ This is the equivalent to running "ssh hpcgwtunnel" in the reusable tunnel instr
 
 6. Hit "Open" to login in to gw.hpc.nyu.edu and create the tunnel. A terminal window will appear, asking for your login name (NYU NetID) and password (NYU password). 	Windows may also ask you to allow certain connections through its firewall - this is so you can ssh to port 8026 on your workstation - the entrance to the tunnel
 
-> **_NOTE:_** 
-> 
-> You can add other NYU hosts to the tunnel by adding a new source port and destination and clicking "Add". For example, you could add "Source port = 8025" and "Destination = EXAMPLE.hpc.nyu.edu:22", then press "Add". You would then perform Step 2 (below) twice - once for greene on port 8026 and once for an example server on port 8025.
+
+:::note
+You can add other NYU hosts to the tunnel by adding a new source port and destination and clicking "Add". For example, you could add "Source port = 8025" and "Destination = EXAMPLE.hpc.nyu.edu:22", then press "Add". You would then perform Step 2 (below) twice - once for greene on port 8026 and once for an example server on port 8025.
+:::
 
 Using your SSH tunnel: To log in via the tunnel, first the tunnel must be open. If you've just completed Step 1, it will be open and you can jump down to "Step 2: Logging in via your SSH tunnel". If you completed Step 1 yesterday, and now want to re-use the tunnel you created, first start the tunnel:
 
@@ -145,7 +154,7 @@ Starting the tunnel: During a session, you need only do this once - as long as t
 
 2. Hit "Open", and log in to the bastion host with your NYU NetID and password. This will create the tunnel. 
 
-### Step 2: Logging in via your SSH tunnel
+### Logging in via your SSH tunnel
 
 1. Start the second Putty.exe. In the "Host Name" box, write "localhost" and in the "Port" box, write "8026" (or whichever port number you specified when you set up the tunnel in the procedure above). We use "localhost" because the entrance of the tunnel is actually on this workstation, at port 8026
 
