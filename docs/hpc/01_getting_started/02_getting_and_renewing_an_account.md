@@ -1,9 +1,4 @@
----
-sidebar_position: 1 
----
-
 # Getting and Renewing an Account
-
 
 [nyu vpn link]: https://www.nyu.edu/life/information-technology/infrastructure/network-services/vpn.html
 

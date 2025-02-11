@@ -1,66 +1,9 @@
----
-toc_max_heading_level: 2
-sidebar_position: 1
----
-
 # Linux Tutorial
 
-- [Getting a new Account on the NYU HPC cluster](#getting-a-new-account-on-the-nyu-hpc-cluster)
+:::tip[Prerequisites]
+Login to the Greene cluster as described in the section on [connecting to the HPC cluster](../02_connecting_to_hpc/01_connecting_to_hpc.md).
 
-- [Getting Started on HPC Greene Cluster](#getting-started-on-hpc-greene-cluster)
-
-- [Available file systems on Greene](#available-file-systems-on-greene)
-
-- [Basic Linux Commands](#basic-linux-commands)
-
-- [Copying, moving or deleting files locally](#copying-moving-or-deleting-files-locally)
-
-- [Text Editor (NANO)](#text-editor-nano)
-
-- [Writing Scripts](#writing-scripts)
-
-- [Setting execute permission with chmod](#setting-execute-permission-with-chmod)
-
-## Getting a new Account on the NYU HPC cluster
-
-It is expected of everyone to have an NYU HPC Cluster Account. If not follow the steps from \[Getting and Renewing an Account page] to apply for a new account.
-
-## Getting Started on HPC Greene Cluster
-
-In a Linux cluster, there are hundreds of computing nodes interconnected by high-speed networks. Linux operating system runs on each of the nodes individually. The resources are shared among many users for their technical or scientific computing purposes.
-
-### The process to log into the Greene Cluster:
-
-**NYU Campus:** From within the NYU network, that is from an on-campus location, or after you have establisehd a VPN connection with the NYU network, you can login to the HPC clusters directly.
-
-**Off-campus:** The host name of Greene is _`greene.hpc.nyu.edu`_. Logging in to Greene is a two-stage process. The HPC clusters (Greene) are not directly visible to the internet (outside the NYU Network). If you are outside NYU's Network (off-campus) you must first login to a bastion host named _`gw.hpc.nyu.edu`_ .
-
-From within the NYU network, that is, from an on-campus location, or after you are in the NYU's network via VPN, you can login to the HPC clusters directly. You do not need to login to the bastion host.
-
-To login into the HPC cluster ( Greene ), simply use:
-
-```sh
-ssh <NYUNetID>@greene.hpc.nyu.edu
-```
-
-- To access from Windows Operating System with PuTTY, please follow the steps at \[Accessing HPC via windows page]
-- Or To connect to VPN from Linux/Mac OS, please follow the steps at \[Accessing HPC via linux/MacOS page]
-
-From an off-campus location or without a VPN (outside NYU-NET), logging in to the HPC clusters is a 2 step process:
-
-1. Frist login to the bastion host, _`gw.hpc.nyu.edu`_. From a Mac or Linux workstation, this is a simple terminal command. Your password is the same password you use for NYU Home:
-
-```sh
-ssh <NYUNetID>@gw.hpc.nyu.edu
-```
-
-_Windows users will need to use Putty, see \[Accessing HPC via windows page]_
-
-2. Next login to the cluster. For Greene, this is done with:
-
-```sh
-ssh <NYUNetID>@greene.hpc.nyu.edu
-```
+:::
 
 ## Available file systems on Greene
 
@@ -68,11 +11,11 @@ Files Systems for usage:
 
 The NYU HPC clusters have multiple file systems for user's file storage needs. Each file system is configured differently to serve a different purpose.
 
-| **Space** | **Environment Variabe** | **Space Purpose** | **Flushed** | **Allocation** (per user) |
+| **Space** | **Environment Variable** | **Purpose** | **Flush Policy** | **Allocation** (per user) |
 | :-- | :-- | :-- | :-- | :-- |
-| `/home` | $HOME | Program Development space; For storing small files, source code, scripts etc that are backed up | NO | 20GB |
-| `/scratch` | $SCRATCH | Computational Workspace; For storing large files/data, infrequent reads and writes | YES Files not accessed for 60 days are deleted | 5TB |
-| `/archive` | $ARCHIVE | Long Term Storage ( Cold storage ) | NO | 2TB |
+| `/home` | `$HOME` | Program Development space; For storing small files, source code, scripts etc that are backed up | NO | 20GB |
+| `/scratch` | `$SCRATCH` | Computational Workspace; For storing large files/data, infrequent reads and writes | YES Files not accessed for 60 days are deleted | 5TB |
+| `/archive` | `$ARCHIVE` | Long Term Storage ( Cold storage ) | NO | 2TB |
 
 ## Basic Linux Commands
 
@@ -143,9 +86,9 @@ If you run "` cd `" with no arguments, you will be returned to your home directo
 | rmdir subdir/ | Remove subdir only if it's empty |
 | rm -r subdir/ | Recursively delete the directory subdir and everything else in it. ` Use it with care ! ` |
 
-## Text Editor (NANO)
+## Text Editor
 
-"nano" is a friendly text editor that can be used to edit the content of an existing file or create a new file. Here are some options used in nano editor.
+`nano` is a friendly text editor that can be used to edit the content of an existing file or create a new file. Here are some options used in nano editor.
 
 | Options | Explanation |
 | :------ | :---------- |
@@ -201,7 +144,10 @@ In Unix, a file has three basic permissions, each of which can be set for three 
 
 - Execute permission (" x ") - numeric value 1. 
 
-> **_NOTE:_** When applied to a directory, execute permission refers to whether the directory can be entered with 'cd'
+:::info
+When applied to a directory, execute permission refers to whether the directory can be entered with 'cd'
+
+:::
 
 The three levels of user are:
 
@@ -213,7 +159,10 @@ The three levels of user are:
 
 You grant permissions with "` chmod who+what file `" and revoke them with "` chmod who-what file `". 
 
-> **_NOTICE:_** The first has "+" and the second "-"
+:::info
+The first has "+" and the second "-"
+
+:::
 
 Here "who" some combination of "u", "g" and "o" and what is some combination of "r", "w" and "x". So to set execute permission, as in the example above, we use:
 

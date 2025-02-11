@@ -1,7 +1,3 @@
----
-sidebar_position: 1 
----
-
 # Renewing your HPC Account with IIQ
 
 Login to the URL given below, using your netid/password, to create or manage HPC Account Requests:
