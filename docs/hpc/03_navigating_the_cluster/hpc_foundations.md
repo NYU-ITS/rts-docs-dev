@@ -7,7 +7,7 @@ sidebar_position: 2
 
 The goal of this exercise is to help you understand the fundamentals **_A to Z_** on effecively navigating the cluster for your research or academic projects.
 
-Before we begin this exercise please make sure you have access to the NYU HPC cluster, if not please review the [Accessing HPC page](../accessing_hpc/accessing_hpc.md).
+Before we begin this exercise please make sure you have access to the NYU HPC cluster, if not please review the [Accessing HPC page](../02_connecting_to_hpc/01_connecting_to_hpc.md).
 
 Login to the Greene cluster with ssh at :
 > Accessible under NYU Net ( either via VPN or within campus network )
@@ -120,7 +120,7 @@ Similar to `/home`, users have access to multiple filesystems that are :
 | /scratch   | /scratch/**Net_ID**/ | General Storage | $SCRATCH
 | /archive   | /archive/**Net_ID**/ | Cold Storage    | $ARCHIVE
 
-You will find more details about these filesystems at [Greene Storage Types page](../spec_sheet.mdx).
+You will find more details about these filesystems at [Greene Storage Types page](../06_spec_sheet.mdx).
 
 You can jump to your `/scratch` directory at `/scratch/Net_ID/` with the `cd` command as `cd /scratch/Net_ID`, Or you could simple use the `$SCRATCH` environment variable as:
 

@@ -4,7 +4,7 @@ sidebar_position: 2
 
 # Slurm Tutorial
 
-[getting and renewing an account page]: ../accessing_hpc/getting_and_renewing_an_account.md
+[getting and renewing an account page]: ../01_getting_started/02_getting_and_renewing_an_account.md
 
 - [Introduction to High Performance Computing Clusters](#introduction-to-high-performance-computing-clusters)
 
