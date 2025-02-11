@@ -1,10 +1,7 @@
 # Open OnDemand (Web-based Graphical User Interface)
 
-Open OnDemand is an open source project funded by the National Science Foundation (NSF). Open OnDemand is designed to create easier access to users to interface with HPC systems. Originally developed by Ohio Supercomputer Center (OSC), used by many universities around the world, and now servicing the NYU Greene HPC cluster.
+Open OnDemand is designed to create easier access to users to interface with HPC systems. It comes with a variety of convenient tools to manage files, access the command line, manage and monitor jobs, and launch interactive applications, such as Jupyter Notebooks, RStudio sessions, and even full Linux Desktops. Features Include:
 
-Open OnDemand has a variety of convenient tools to manage files, access the command line, manage and monitor jobs, and launch interactive applications, such as Jupyter Notebooks, RStudio sessions, and even full Linux Desktops. 
-
-Features Include:
 -   Easy file management - upload and download files, view HTML and pictures without downloading
 
 -   Command-line shell access without any SSH client locally installed
@@ -15,9 +12,7 @@ Features Include:
 
 -   Interactive Apps such as JupyterHub and RStudio without the need for port forwarding
 
-Open OnDemand (OOD) is accessible to all users with a valid NYU HPC account while on-campus network or through a VPN.
-
-To access OOD visit: https://ood.hpc.nyu.edu (VPN Required)
+Open OnDemand (OOD) is accessible to all users with a valid NYU HPC account while on-campus network or through a VPN via https://ood.hpc.nyu.edu.
 
 ## Access the Shell
 
