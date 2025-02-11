@@ -1,7 +1,3 @@
----
-sidebar_position: 1 
----
-
 # HPC Accounts for Sponsored External Collaborators
 
 External (non-NYU) collaborators can access, with proper sponsorship, the NYU HPC Environment.

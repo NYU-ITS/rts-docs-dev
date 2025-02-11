@@ -1,8 +1,3 @@
----
-sidebar_position: 1 
----
-
-
 # How to approve an HPC Account Request
 
 When someone nominates you as their HPC sponsor, you should be notified by email. You can also [log into IIQ at any time](https://iiq.nyu.edu/identityiq), and if you have a request awaiting your approval, it will appear in your "Actions Items" box, as per the following screenshot:

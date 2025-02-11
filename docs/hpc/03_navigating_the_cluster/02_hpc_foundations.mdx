@@ -1,21 +1,8 @@
----
-toc_max_heading_level: 2
-sidebar_position: 2
----
-
 # HPC Foundations
 
-The goal of this exercise is to help you understand the fundamentals **_A to Z_** on effecively navigating the cluster for your research or academic projects.
+The goal of this exercise is to help you understand the fundamentals of effecively navigating the cluster for your research or academic projects. Before we begin this exercise please make sure you have access to the NYU HPC cluster, if not please review the section on [connecting to the HPC cluster](../02_connecting_to_hpc/01_connecting_to_hpc.md).
 
-Before we begin this exercise please make sure you have access to the NYU HPC cluster, if not please review the [Accessing HPC page](../02_connecting_to_hpc/01_connecting_to_hpc.md).
-
-Login to the Greene cluster with ssh at :
-> Accessible under NYU Net ( either via VPN or within campus network )
-```sh
-greene.hpc.nyu.edu
-```
-
-Once logged in, you should notice the **_node_** which you are currently on from the _bash prompt_ as shown below :
+Login to the Greene cluster as described in the section on [connecting to the HPC cluster](../02_connecting_to_hpc/01_connecting_to_hpc.md). Once logged in, you should notice the **_node_** which you are currently on from the _bash prompt_ as shown below :
 
 ```sh
 [pp2959@log-3 ~]$
@@ -87,10 +74,10 @@ As you can see, it is the same file, same directory, the same filesystem for all
 
 Regardless of whichever login node you may end up on, **_all_** users have access to **_a common_** filesystem that is `/home`. It is important to understand that users read and write files to the same filesystem while logged in from any of the 4 login nodes.
 
-> **_REMEMBER_**
->
-> - `/home` is your `personal workspace` having a limited space
-> - It is intended as a space for `maintaining code bases only`
+:::warning
+-   `/home` is your `personal workspace` having a limited space
+-   It is intended as a space for `maintaining code bases only`
+:::
 
 Now, `exit` from your current `shell instance` by running the command `exit`:
 
@@ -100,15 +87,17 @@ logout
 Connection to log-1 closed.
 [pp2959@log-3 ~]$ 
 ```
+::::info
+1.  The first line tells you that you have logged out of your current **_bash shell_**
+2.  The second line tells you that the **_ssh connection_** to log-1 has been **_closed_** 
+3.  Now you are back to your **_previous login_** node, in this example log-3, that is your previous **_bash shell_**
 
-> **IMPORTANT - _Notice the output:_**
->
-> 1. The first line tells you that you have logged out of your current **_bash shell_**
-> 2. The second line tells you that the **_ssh connection_** to log-1 has been **_closed_** 
-> 3. Now you are back to your **_previous login_** node, in this example log-3, that is your previous **_bash shell_**
->
-> **_Why is this imporatant to understand_** ? 
-> Because this will build your foundations in understanding the different kinds of nodes that exists and how you should use them for your projects 
+:::tip[Why is this imporatant to understand?]
+Because this will build your foundations in understanding the different kinds of nodes that exists and how you should use them for your projects
+
+:::
+
+::::
 
 ### Other File Systems
 
@@ -157,7 +146,7 @@ The `/archive` Space:
 
 - Never purged 
 
-## Running programs on a `login` node
+## Running programs on a login node
 
 Login nodes. As the name implies are used for interacting with the cluster only. They are not equiped with compute heavy hardware or much memory, and hence you may run simple programs ( that can lag a bit ) but not compute heavy workloads. 
 
@@ -234,8 +223,7 @@ As you can see, we encounter an error like the one below:
 [pp2959@log-3 ~]$
 ```
 
-`apt-get` does not exist, this is because package managers are not allowed on the cluster as they require `root` privileges for installation.
-You will need to load pre-installed software pacakges with a command called `module`. 
+`apt-get` is not available to users as it requires `root` priviliges which the users do not get.You will need to load pre-installed software pacakges with a command called `module`. 
 
 First, let's search for any versions of `lua` available by running the command `module spider <Software_Package>`:
 
@@ -371,7 +359,7 @@ module --help
 > - `/home` filesystem and it's purpose
 > - Load necessary `modules` to run our programs
 
-## Running Programs on a `Compute` Node
+## Running Programs on a compute node
 
 The Greene cluster has over 100s of compute nodes equiped with all kinds of High Performance hardware such as x86 Intel, AMD server CPUs, and Nvidia, AMD server GPUs ( such as the H100s ).
 
@@ -413,16 +401,14 @@ cm001.hpc.nyu.edu
 hello, world
 [pp2959@log-2 ~]$
 ```
+:::info
+**_Read the Output carefully_**
+-   This job is given an **_id_** that is `55744835`, this is called a `job id`.
+-   The job `job 55744835` is `queued and waiting` to be scheduled on a compute node, since these nodes are expected to be busy based on demand, it may take some time for your job to be scheduled 
+-   Once the `job` gets `scheduled`, your program `lua hello.lua` gets run on a chosen `compute node(s)` and the program's output is printed back to your console 
+-   Based on your output, you may notice the name of the compute node that this program runs on, the node `cm001.hpc.nyu.ed` in this example is a CPU only node, you may notice a different node. You can find more details about the \[specific nodes here].
 
-> **_Read the Output carefully_**
->
-> 1. This job is given an **_id_** that is `55744835`, this is called a `job id`.
-> 
-> 2. The job `job 55744835` is `queued and waiting` to be scheduled on a compute node, since these nodes are expected to be busy based on demand, it may take some time for your job to be scheduled 
-> 
-> 3. Once the `job` gets `scheduled`, your program `lua hello.lua` gets run on a chosen `compute node(s)` and the program's output is printed back to your console 
-> 
-> 4. Based on your output, you may notice the name of the compute node that this program runs on, the node `cm001.hpc.nyu.ed` in this example is a CPU only node, you may notice a different node. You can find more details about the \[specific nodes here].
+:::
 
 **_Now how do we determine Or specify the amount of resources needed to run our `hello.lua` script ?_**
 
@@ -1346,7 +1332,3 @@ salloc: Job allocation 56149430 has been revoked.
 ## Package Software with `Containers`
 
 ## Burst priority jobs to Cloud with `Burst nodes`
-
-## `Secure Research Data` Environments
-
-
