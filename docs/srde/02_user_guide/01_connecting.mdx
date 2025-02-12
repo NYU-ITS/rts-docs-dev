@@ -1,4 +1,4 @@
-# SRDE User Guide
+# Connecting to SRDE
 
 Remote access to the secure environment workspace via the Command Line Interface. The SRDE consists of two separate servers: 
 -   The Workspace Host is where you access and analyze data
@@ -162,3 +162,101 @@ And then on the bastion VM:
 ```sh
 ssh 10.0.0.2
 ```
+
+
+## Connecting on MacOS/Linux
+
+### Install gcloud CLI
+Follow the [official guidelines](https://cloud.google.com/sdk/docs/install-sdk#installing_the_latest_version) to install the latest version of gcloud CLI locally on your computer.
+
+:::note
+After completing the gcloud installation, verify that the `gcloud` binary is in your $PATH environment variable.
+
+:::
+
+### Configure local gcloud settings
+Run the following command. It generates a link as shown below
+
+```sh
+gcloud auth login --no-launch-browser
+```
+
+![GCP authenticate login](./static/auth_login.png)
+
+Copy the link and open your chrome browser in incognito mode to perform user sign in.Username is your NYU NetID email address. For e.g. netid@nyu.edu
+
+
+You will be redirected to the NYU SSO page and MFA verification through Duo Push. After successfully logging in, you will be asked to allow google SDK to access your account as shown below
+
+![OAuth consent screen](./static/oauth_consent.png)
+
+Pressing the “Allow” button on this page will present the authorization code. Copy the code and paste it in the terminal. If this step is successful, you should see this text printed to the console. **You are now logged in as [netid@nyu.edu].**
+
+### Connect to the workspace
+Follow the same instructions for connecting with Google Cloud Shell above, starting from section on setting project and zone above.
+
+## Connecting on Windows 10/11
+
+### Start and Configure SSH-Agent Service 
+Using an elevated PowerShell window (run as admin), execute the following command to install the SSH-Agent service and configure it to start automatically when you log into your machine:
+```ps
+Get-Service ssh-agent | Set-Service -StartupType Automatic -PassThru | Start-Service
+
+```
+![Run a script in PowerShell](./static/powershell_script.png)
+
+### Install gcloud CLI
+Download the [Google Cloud CLI installer] (https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe) and run the installer
+
+![GCloud Installer](./static/gcloud_windows_installer.png)
+
+Alternatively, run the following command to download and install:
+```ps
+(New-Object Net.WebClient).DownloadFile("https://dl.google.com/dl/cloudsdk/channels/rapid/GoogleCloudSDKInstaller.exe", "$env:Temp\GoogleCloudSDKInstaller.exe")
+
+& $env:Temp\GoogleCloudSDKInstaller.exe
+
+```
+
+### Install Git
+Download the Git Bash setup from the official website: https://git-scm.com/ and run the installer
+
+
+### Install Putty
+Download and install Putty from this link https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html
+
+Post installation verify that the Putty authentication agent is installed and available
+
+For 64-bit installer, you will find this executable at `C:/Program Files/PuTTY/pageant.exe`
+
+
+### Install Python (>version 3.0)
+Install Python from the official website:https://www.python.org/downloads/
+
+Remember to check “Add python to the environment path.” ***add screenshot
+
+Make sure it's installed and available on PATH. On many systems Python comes pre-installed, you can try running the python command to start the Python interpreter to check and see if it is already installed.
+
+![Python in CMD Prompt](./static/cmd_prompt_python.png)
+
+On windows you can also try the py command which is a launcher which is more likely to work. If it is installed you will see a response which will include the version number, for example:
+
+
+![Py in CMD Prompt](./static/cmd_prompt_py.png)
+
+### Logging in:
+Authenticate gcloud by starting a new session of command line or powershell. initialize and login to gcloud with your account (you will be redirected to the browser for authentication)
+```ps
+gcloud auth login
+```
+
+![OAuth on windows](./static/oauth_consent_windows.png)
+
+
+
+
+
+
+
+
+
