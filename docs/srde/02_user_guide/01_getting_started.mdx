@@ -11,7 +11,7 @@ This two-step process is enabled with the use of SSH keys and SSH Agent Forwardi
 
 User access to the secure environment is controlled by [Identity-Aware Proxy (IAP)](https://cloud.google.com/security/products/iap?hl=en) Google Cloud service. IAP provides a central way of managing user access and enforcing access control policies, without requiring external/public IP addresses on the Bastion Host and the Workspace Host.
 
-::::tip [Prerequisites]
+::::tip[Prerequisites]
 In order to be able to access your Secure Environment Workspace Host, you will need the following information, provided by the Secure Research Data Admins:
 -   **Project Id** for the Bastion Host (ex. test-dev1-bastion-1234)    
 -   **Zone Name** (ex. us-east4-a)
@@ -81,7 +81,7 @@ Your active configuration is: [default]
 
 ### Generate SSH keys
 
-:::tip [Unused keys expire!]
+:::tip[Unused keys expire!]
 Google Cloud Shell will delete your files, including generated SSH keys, if they are not accessed for 120 days. If this happens you will need to generate them again.
 
 :::
