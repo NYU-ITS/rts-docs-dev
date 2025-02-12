@@ -269,9 +269,67 @@ pageant.exe
 ![PAgent Windows](./static/pagent_windows.png)
 
 The app runs in the background. you can find it in the tray.
+![PAgent in tray](./static/pagent_in_tray.png)
+
+Right click the icon and select "Add Key". Add the google_compute_engine key with the PPK extension (~/.ssh/google_compute_engine) to your agent:
+![PPK Add Key](./static/ppk_add_key.png)
 
 
+:::Skip this step in the future
+Go to the Pageant shortcut icon from the Windows Start Menu or your desktop.
 
+Right click on the icon, and click on Properties. (If Properties is not an option on the menu, click on Open file location, then right click on the Pageant icon, and click on Properties)
 
+:::
 
+![PPK properties](./static/ppk_properties_trust.png)
 
+From the Shortcut tab, edit the Target field. Leave the path to pageant.exe intact. After that path, add the path to your Google .ppk key file.
+
+:::warning[Critical]
+The key path should be outside the quotation marks. i
+
+:::
+
+Here’s an example:
+```ps
+"C:\Program Files\PuTTY\pageant.exe" C:\Users\Sam\.ssh\google_compute_engine.ppk
+```
+
+![PAgent properties](./static/pagent_properties_popout.png)
+
+### SSH into the bastion VM from Git Bash
+:::tip
+Ask your SRDE administrator for the appropriate GCP project ID.
+
+:::
+
+Replace gcp-project-id with that information in the below command:
+```ps
+export PROJECT_ID=gcp-project-id;
+
+gcloud compute ssh bastion-vm --ssh-flag="-A" --zone=us-east4-a --tunnel-through-iap --project=${PROJECT_ID}
+
+```
+![Export Project ID and login](./static/mingw_export_project_gcloud_login.png)
+
+When SSHing to bastion in the git bash window, a new terminal in putty appears with the bastion connection
+![PUTTy bastion](./static/putty_bastion.png)
+
+A PuTTY security alert window may pop up to accept the host key, click on Accept
+![PUTTy security alert](./static/putty_security_alert.png)
+
+### Add SSH key to session
+
+Run ssh-add to add the google_compute_engine key to the current session
+```ps
+ssh-add  -L 
+```
+
+Connect to the workstation-vm
+
+```ps
+ssh 10.0.0.2
+```
+
+![PUTTy ssh to vm](./static/putty_ssh_to_vm.png)
