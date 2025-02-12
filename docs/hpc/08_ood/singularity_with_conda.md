@@ -1,13 +1,13 @@
 # Singularity with Conda
 
-- [What is Singularity?](#what-is-singularity)
-- [Using Singularity Overlays for Miniforge (Python & Julia)](#using-singularity-overlays-for-miniforge-python--julia)
-        - [Preinstallation Warning](#preinstallation-warning)
-        - [Miniforge Environment PyTorch Example](#miniforge-environment-pytorch-example)
-        - [Using your Singularity Container in a SLURM Batch Job](#using-your-singularity-container-in-a-slurm-batch-job)
-        - [Optional: Convert ext3 to a compressed, read-only squashfs filesystem](#optional-convert-ext3-to-a-compressed-read-only-squashfs-filesystem)
-        - [Julia Singularity Image](#julia-singularity-image)
-        - [Using CentOS 8 for Julia (for Module Compatibility)](#using-centos-8-for-julia-for-module-compatibility)
+  - [What is Singularity?](#what-is-singularity)
+  - [Using Singularity Overlays for Miniforge (Python & Julia)](#using-singularity-overlays-for-miniforge-python--julia)
+          - [Preinstallation Warning](#preinstallation-warning)
+          - [Miniforge Environment PyTorch Example](#miniforge-environment-pytorch-example)
+          - [Using your Singularity Container in a SLURM Batch Job](#using-your-singularity-container-in-a-slurm-batch-job)
+          - [Optional: Convert ext3 to a compressed, read-only squashfs filesystem](#optional-convert-ext3-to-a-compressed-read-only-squashfs-filesystem)
+          - [Julia Singularity Image](#julia-singularity-image)
+          - [Using CentOS 8 for Julia (for Module Compatibility)](#using-centos-8-for-julia-for-module-compatibility)
 
 ## What is Singularity?
 Singularity is a free, cross-platform and open-source program that creates and executes containers on the HPC clusters. Containers are streamlined, virtualized environments for specific programs or packages. Singularity is an industry standard tool to utilize containers in HPC environments. Containers allow for the support of highly specific environments and further increase scientific reproducibility and portability. Using Singularity containers, researchers can work in the reproducible containerized environments of their choice can easily tailor them to their needs.
