@@ -252,8 +252,23 @@ gcloud auth login
 
 ![OAuth on windows](./static/oauth_consent_windows.png)
 
+![GCP login CMD prompt](./static/cmd_prompt_gcp_login.png)
 
+Run Git Bash and start the ssh-agent on your local machine
 
+```ps
+eval `ssh-agent -s`
+```
+![SSH Agent command](./static/mingw_eval_ssh.png)
+
+Add the SSH key to agent by running
+
+```ps
+pageant.exe
+```
+![PAgent Windows](./static/pagent_windows.png)
+
+The app runs in the background. you can find it in the tray.
 
 
 
