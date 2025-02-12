@@ -52,6 +52,19 @@ To conduct a `linting` check with `remark-cli` run:
 pnpm lint
 ```
 
+To remove all node packages for downloading and building from scratch, exit pixi shell by running `exit`, then dry run `git clean`:
+
+```
+git clean -nXd
+```
+
+Check which files and directories will be removed, then to actually remove these files run:
+
+```
+git clean -fXd
+```
+
+Once done, you may begin from the start with `pixi install`.
 
 ## Deploy locally:
 On Linux/Macos run:
