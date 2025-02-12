@@ -180,3 +180,5 @@ Update the `"<Your NetID>"` to your own NetID without the `"<>"` symbols.
 
 ### Launch an Open OnDemand Jupyter Notebook
 [https://ood.hpc.nyu.edu](https://ood.hpc.nyu.edu)
+
+![OOD Launch](./static/OOD_launch.png)
