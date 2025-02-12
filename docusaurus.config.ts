@@ -86,7 +86,7 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'genaiSidebar',
           position: 'right',
-          label: 'GenAI',
+          label: 'Pythia',
         },
         {
           type: 'docSidebar',
