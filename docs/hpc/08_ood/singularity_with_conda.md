@@ -1,7 +1,7 @@
 # Singularity with Conda
 
-- [What is Singularity?](#what-is-singularity)
-- [Using Singularity Overlays for Miniforge (Python & Julia)](#using-singularity-overlays-for-miniforge-python--julia)
+  - [What is Singularity?](#what-is-singularity)
+  - [Using Singularity Overlays for Miniforge (Python & Julia)](#using-singularity-overlays-for-miniforge-python--julia)
       - [Preinstallation Warning](#preinstallation-warning)
       - [Miniforge Environment PyTorch Example](#miniforge-environment-pytorch-example)
       - [Using your Singularity Container in a SLURM Batch Job](#using-your-singularity-container-in-a-slurm-batch-job)
@@ -14,7 +14,11 @@ Singularity is a free, cross-platform and open-source program that creates and e
 
 ## Using Singularity Overlays for Miniforge (Python & Julia)
 ### Preinstallation Warning
-If you have initialized Conda in your base environment (your prompt on Greene may show something like `(base) [NETID@log-1 ~]$)` then you must first comment out or remove this portion of your ~/.bashrc file:
+If you have initialized Conda in your base environment, your prompt on Greene may show something like: 
+```sh
+(base) [NETID@log-1 ~]$
+```
+then you must first comment out or remove this portion of your ~/.bashrc file:
 
 ```
 # >>> conda initialize >>>
