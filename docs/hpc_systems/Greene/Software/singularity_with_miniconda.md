@@ -1,1 +1,0 @@
-# Singularity with Miniconda
