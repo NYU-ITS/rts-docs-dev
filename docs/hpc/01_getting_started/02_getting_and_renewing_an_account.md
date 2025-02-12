@@ -22,20 +22,6 @@ This section deals with the eligibility for getting HPC accounts and the process
 
 NYU HPC clusters and related resources are available to full-time NYU faculty and to all NYU staff and, students with sponsorship from a full-time NYU faculty.
 
-:::note
-
-In order to request a new HPC account or renew an expired one, you need to be connected to the NYU VPN if you are working remotely, Please see [instructions on how to install and use the NYU VPN][nyu vpn link]. Linux clients are not officially supported, however we were able to successfully use openVPN client. Here are installation and connection instructions for a debian linux distribution with apt pacakge manager:
-
-```sh
-apt-get install openconnect
-sudo openconnect -b vpn.nyu.edu
-```
-
-_When prompted follow the instructions and provide your netID, password, and authenticate with ('push', 'phone1' or 'sms')_
-
-This method was tested on few Linux distributions and settings however is not guaranteeed to work in future.
-
-:::
 
 ## Getting a new account on the NYU HPC clusters
 
@@ -103,3 +89,21 @@ Please see [instructions for affiliate management][affiliate and account managem
 If you will still work on a project with an NYU researchers after graduation - refer to the section above for "Non-NYU Researchers"
 
 If you are not part of a collaboration, your access to cluster will end together with NetID becoming non-active. Please copy all your data cluster (if you need any) before that time.
+
+
+## VPN on a Linux machine
+
+:::note
+
+In order to request a new HPC account or renew an expired one, you need to be connected to the NYU VPN if you are working remotely, Please see [instructions on how to install and use the NYU VPN][nyu vpn link]. Linux clients are not officially supported, however we were able to successfully use openVPN client. Here are installation and connection instructions for a debian linux distribution with apt pacakge manager:
+
+```sh
+apt-get install openconnect
+sudo openconnect -b vpn.nyu.edu
+```
+
+_When prompted follow the instructions and provide your netID, password, and authenticate with ('push', 'phone1' or 'sms')_
+
+This method was tested on few Linux distributions and settings however is not guaranteeed to work in future.
+
+:::
