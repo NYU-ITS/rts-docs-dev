@@ -18,9 +18,9 @@ If you have initialized Conda in your base environment, your prompt on Greene ma
 ```sh
 (base) [NETID@log-1 ~]$
 ```
-then you must first comment out or remove this portion of your ~/.bashrc file:
+then you must first comment out or remove this portion of your `~/.bashrc` file:
 
-```
+```bash
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/share/apps/anaconda3/2020.07/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -43,28 +43,28 @@ The above code automatically makes your environment look for the default shared 
 [Conda environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) allow users to create customizable, portable work environments and dependencies to support specific packages or versions of software for research. Common conda distributions include Anaconda, Miniconda and Miniforge. Packages are available via "channels". Popular channels include "conda-forge" and "bioconda".  In this tutorial we shall use [Miniforge](https://github.com/conda-forge/miniforge) which sets "conda-forge" as the package channel. Traditional conda environments, however, also create a large number of files that can cut into quotas. To help reduce this issue, we suggest using [Singularity](https://docs.sylabs.io/guides/4.1/user-guide/), a container technology that is popular on HPC systems. Below is an example of how to create a pytorch environment using Singularity and Miniforge.
 
 Create a directory for the environment
-```
+```sh
 mkdir /scratch/<NetID>/pytorch-example
 cd /scratch/<NetID>/pytorch-example
 ```
 Copy an appropriate gzipped overlay images from the overlay directory. You can browse available images to see available options
-```
+```sh
 ls /scratch/work/public/overlay-fs-ext3
 ```
 In this example we use overlay-15GB-500K.ext3.gz as it has enough available storage for most conda environments. It has 15GB free space inside and is able to hold 500K files
 You can use another size as needed.
-```
+```sh
 cp -rp /scratch/work/public/overlay-fs-ext3/overlay-15GB-500K.ext3.gz .
 gunzip overlay-15GB-500K.ext3.gz
 ```
 
 Choose a corresponding Singularity image. For this example we will use the following image
-```
+```sh
 /scratch/work/public/singularity/cuda12.1.1-cudnn8.9.0-devel-ubuntu22.04.2.sif 
 ```
 
 For Singularity image available on nyu HPC greene,  please check the singularity images folder
-```
+```sh
 /scratch/work/public/singularity/
 ```
 
@@ -77,21 +77,21 @@ singularity exec --overlay overlay-15GB-500K.ext3:rw /scratch/work/public/singul
 
 The above starts a bash shell inside the referenced Singularity Container overlayed with the 15GB 500K you set up earlier. This creates the functional illusion of having a writable filesystem inside the typically read-only Singularity container.
 
-Now, inside the container, download and install miniforge to /ext3/miniforge3
-```
+Now, inside the container, download and install miniforge to `/ext3/miniforge3`
+```sh
 wget --no-check-certificate https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh
 bash Miniforge3-Linux-x86_64.sh -b -p /ext3/miniforge3
 # rm Miniforge3-Linux-x86_64.sh # if you don't need this file any longer
 ```
 
 Next, create a wrapper script /ext3/env.sh using a text editor, like nano.
-```
+```sh
 touch /ext3/env.sh
 nano /ext3/env.sh
 ```
 
 The wrapper script will activate your conda environment, to which you will be installing your packages and dependencies. The script should contain the following:
-```
+```bash
 #!/bin/bash
 
 unset -f which
@@ -102,17 +102,17 @@ export PYTHONPATH=/ext3/miniforge3/bin:$PATH
 ```
 
 Activate your conda environment with the following:
-```
+```sh
 source /ext3/env.sh
 ```
 
 If you have the "defaults" channel enabled, please disable it with
-```
+```sh
 conda config --remove channels defaults
 ```
 
 Now that your environment is activated, you can update and install packages:
-```
+```sh
 conda update -n base conda -y
 conda clean --all --yes
 conda install pip -y
@@ -120,7 +120,7 @@ conda install ipykernel -y # Note: ipykernel is required to run as a kernel in t
 ```
 
 To confirm that your environment is appropriately referencing your Miniforge installation, try out the following:
-```
+```sh
 unset -f which
 which conda
 # output: /ext3/miniforge3/bin/conda
@@ -143,7 +143,7 @@ exit
 You may now install packages into the environment with either the pip install or conda install commands. 
 
 First, start an interactive job with adequate compute and memory resources to install packages. The login nodes restrict memory to 2GB per user, which may cause some large packages to crash.
-```
+```sh
 srun --cpus-per-task=2 --mem=10GB --time=04:00:00 --pty /bin/bash
 
 # wait to be assigned a node
@@ -157,7 +157,7 @@ source /ext3/env.sh
 After it is running, you’ll be redirected to a compute node. From there, run singularity to setup on conda environment, same as you were doing on login node.
 
 We will install PyTorch as an example:
-```
+```sh
 pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu116
 
 pip3 install jupyter jupyterhub pandas matplotlib scipy scikit-learn scikit-image Pillow
@@ -166,7 +166,7 @@ pip3 install jupyter jupyterhub pandas matplotlib scipy scikit-learn scikit-imag
 For the latest versions of PyTorch please check the [PyTorch website](https://pytorch.org/).
 
 You can see the available space left on your image with the following commands:
-```
+```sh
 find /ext3 | wc -l
 # output: should be something like 45445
 
@@ -175,12 +175,12 @@ du -sh  /ext3
 ```
 
 Now, exit the Singularity container and then rename the overlay image. Typing 'exit' and hitting enter will exit the Singularity container if you are currently inside it. You can tell if you're in a Singularity container because your prompt will be different, such as showing the prompt 'Singularity>'
-```
+```sh
 exit
 mv overlay-15GB-500K.ext3 my_pytorch.ext3
 ```
 #### Test your PyTorch Singularity Image
-```
+```sh
 singularity exec --overlay /scratch/<NetID>/pytorch-example/my_pytorch.ext3:ro /scratch/work/public/singularity/cuda12.1.1-cudnn8.9.0-devel-ubuntu22.04.2.sif /bin/bash -c 'source /ext3/env.sh; python -c "import torch; print(torch.__file__); print(torch.__version__)"'
 
 #output: /ext3/miniforge3/lib/python3.8/site-packages/torch/__init__.py
@@ -192,7 +192,7 @@ singularity exec --overlay /scratch/<NetID>/pytorch-example/my_pytorch.ext3:ro /
 Below is an example script of how to call a python script, in this case torch-test.py, from a SLURM batch job using your new Singularity image
 
 torch-test.py:
-```
+```sh
 #!/bin/env python
 
 import torch
@@ -213,7 +213,7 @@ print(torch.cuda.is_available())
 Now we will write the SLURM job script, run-test.SBATCH, that will start our Singularity Image and call the torch-test.py script.
 
 run-test.SBATCH:
-```
+```bash
 #!/bin/bash
 
 #SBATCH --nodes=1
@@ -235,12 +235,12 @@ singularity exec --nv \
 You will notice that the singularity exec command features the '--nv flag' - this flag is reguired to pass the CUDA drivers from a GPU to the Singularity container.
 
 Run the run-test.SBATCH script
-```
+```sh
 sbatch run-test.SBATCH
 ```
 
 Check your SLURM output for results, an example is shown below
-```
+```sh
 cat slurm-3752662.out
 
 # example output:
@@ -253,12 +253,12 @@ cat slurm-3752662.out
 
 ### Optional: Convert ext3 to a compressed, read-only squashfs filesystem
 Singularity images can be compressed into read-only squashfs filesystems to conserve space in your environment. Use the following steps to convert your ext3 Singularity image into a smaller squashfs filesystem.
-```
+```sh
 srun -N1 -c4 singularity exec --overlay my_pytorch.ext3:ro /scratch/work/public/singularity/centos-8.2.2004.sif mksquashfs /ext3 /scratch/<NetID>/pytorch-example/my_pytorch.sqf -keep-as-directory -processors 4
 ```
 
 Here is an example of the amount of compression that can be realized by converting:
-```
+```sh
 ls -ltrsh my_pytorch.*
 5.5G -rw-r--r-- 1 wang wang 5.5G Mar 14 20:45 my_pytorch.ext3
 2.2G -rw-r--r-- 1 wang wang 2.2G Mar 14 20:54 my_pytorch.sqf
@@ -269,7 +269,7 @@ Notice that it saves over 3GB of storage in this case, though your results may v
 #### Use a squashFS Image for Running Jobs
 
 You can use squashFS images similarly to the ext3 images.
-```
+```sh
 singularity exec --overlay /scratch/<NetID>/pytorch-example/my_pytorch.sqf:ro /scratch/work/public/singularity/cuda12.1.1-cudnn8.9.0-devel-ubuntu22.04.2.sif  /bin/bash -c 'source /ext3/env.sh; python -c "import torch; print(torch.__file__); print(torch.__version__)"'
 
 #example output: /ext3/miniforge3/lib/python3.8/site-packages/torch/__init__.py
@@ -281,7 +281,7 @@ singularity exec --overlay /scratch/<NetID>/pytorch-example/my_pytorch.sqf:ro /s
 If the first ext3 overlay image runs out of space or you are using a squashFS conda enviorment, but need to install a new package inside, please copy another writable ext3 overlay image to work together.
 
 Open the first image in read only mode
-```
+```sh
 cp -rp /scratch/work/public/overlay-fs-ext3/overlay-2GB-100K.ext3.gz .
 gunzip overlay-2GB-100K.ext3.gz
 
@@ -299,25 +299,25 @@ Please also keep in mind that once the overlay image is opened in default read-w
 Singularity can be used to set up a Julia environment.
 
 Create a directory for your julia work, such as `/scratch/<NetID>/julia`, and then change to your home directory. An example is shown below.
-```
+```sh
 mkdir /home/<NetID>/julia
 cd /home/<NetID>/julia
 ```
 
 Copy an overlay image, such as the 2GB 100K overlay, which generally has enough storage for Julia packages. Once copied, unzip to the same folder, rename to julia-pkgs.ext3
-```
+```sh
 cp -rp /scratch/work/public/overlay-fs-ext3/overlay-2GB-100K.ext3.gz .
 gunzip overlay-2GB-100K.ext3.gz
 mv overlay-2GB-100K.ext3 julia-pkgs.ext3
 ```
 
 Copy the following wrapper script in the directory
-```
+```sh
 cp -rp /share/apps/utils/julia-setup/* .
 ```
 
 Now launch writable Singularity overlay to install packages
-```
+```sh
 module purge
 module load knitro/12.3.0
 module load julia/1.5.3
@@ -385,7 +385,7 @@ You can add additional packages with commands like the one below (***NOTE***: Pl
 ```
 
 Run a SLURM job to test with the following sbatch command (e.g. julia-test.SBATCH)
-```
+```bash
 #!/bin/bash 
 
 #SBATCH --nodes=1
@@ -403,12 +403,12 @@ module load knitro/12.3.0
 ```
 
 Then run the command with the following:
-```
+```sh
 sbatch julia-test.SBATCH
 ```
 
 Once the job completes, check the SLURM output (example below)
-```
+```sh
 cat slurm-1022969.out
 
 =======================================
@@ -477,7 +477,7 @@ Time spent in evaluations (secs)    =       0.00000
 Building on the previous Julia example, this will demonstrate how to set up a similar environment using the Singularity CentOS 8 image for additional customization. Using the CentOS 8 overlay allows for the loading of modules installed on Greene, such as Knitro 12.3.0
 
 Copy overlay image
-```
+```sh
 cp -rp /scratch/work/public/overlay-fs-ext3/overlay-2GB-100K.ext3.gz .
 gunzip overlay-2GB-100K.ext3.gz
 mv overlay-2GB-100K.ext3 julia-pkgs.ext3
@@ -486,18 +486,18 @@ mv overlay-2GB-100K.ext3 julia-pkgs.ext3
 The path in this example is `/scratch/<NetID>/julia/julia-pkgs.ext3`
 
 To use modules installed into `/share/apps` you can make two directories
-```
+```sh
 mkdir julia-compiled julia-logs
 ```
 
 Now, in this example, the absoulte paths are as follows
-```
+```sh
 /scratch/<NetID>/julia/julia-compiled
 /scratch/<NetID>/julia/julia-logs
 ```
 
 To launch Singularity with overlay images in writable mode to install packages 
-```
+```sh
 singularity exec \
         --overlay /scratch/<NetID>/julia/julia-pkgs.ext3 \
         --bind /share/apps \
@@ -508,7 +508,7 @@ singularity exec \
 ```
 
 Implement a wrapper script /ext3/env.sh
-```
+```bash
 #/bin/bash
 
 export JULIA_DEPOT_PATH=/ext3/pkgs # this changes the default installation path to the environment
@@ -520,7 +520,7 @@ module load julia/1.5.3
 ```
 
 Load julia via the wrapper script and check that it loads properly
-```
+```sh
 source /ext3/env.sh
 which julia
 # example output: /share/apps/julia/1.5.3/bin/julia
@@ -549,7 +549,7 @@ optimize!(m)
 ```
 
 Now implement a wrapper script named julia into ~/bin, the overlay image is in readonly mode
-```
+```bash
 #!/bin/bash
 
 args=''
@@ -573,12 +573,12 @@ julia $args
 ```
 
 Make the wrapper executable
-```
+```sh
 chmod 755 ~/bin/julia
 ```
 
 Test your installation with a SLURM job example. The following code has been put into a file called test-julia-centos.SBATCH
-```
+```bash
 #!/bin/bash 
 
 #SBATCH --nodes=1
@@ -593,19 +593,19 @@ julia test.jl
 ```
 
 Run the above with the following:
-```
+```sh
 sbatch test-julia-centos.SBATCH
 ```
 
 Read the output (example below)
-```
+```sh
 cat slurm-764085.out 
 ```
 
 #### Installing New Julia Packages Later
 
 Implement another writable julia-writable with overlay image writable in order to install new Julia packages later
-```
+```sh
 cd /home/<NetID>/bin
 cp -rp julia julia-writable
 
@@ -632,18 +632,18 @@ julia $args
 ```
 
 Check the writable image
-```
+```sh
 which julia-writable
 #example output: ~/bin/julia-writable
 ```
 
 Install packages to the writable image
-```
+```sh
 julia-writable -e 'using Pkg; Pkg.add(["Calculus", "LinearAlgebra"])'
 ```
 
 If you do not need host packages installed in /share/apps, you can work with Singularity OS image 
-```
+```sh
 /scratch/work/public/singularity/ubuntu-20.04.1.sif 
 ```
 
