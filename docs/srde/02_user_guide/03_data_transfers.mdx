@@ -80,3 +80,83 @@ Data stewards do not have access to the research project workspace.
 
 Instructions for researchers who need to access the ingested data in the research workspace are found in the [Data Access section](02_data_access.mdx) of this document.
 
+## Data Egress Process
+To transport data out of the SRDE project workspace, research team members copy files to be exported to the 'export' folder in the Researcher Workspace Egress bucket, sample command below:
+![Data egress via gsutils cp](./static/gsutils_cp_egress.png)
+
+After the files have been copied to the export folder in the egress bucket within the workspace, researchers will notify the Data Steward that they are ready to export.  The Data Steward will first move the files to the Staging Egress folder and scan them using the Data Loss Prevention API, a tool for automatically detecting sensitive data types. Next, they will check the generated report and either pass the inspection or fail it. Passing the inspection moves the data onwards to the Research Data Egress project for external sharing. Failing the inspection blocks the export.
+![Data egress process overview](./static/data_egress_process_overview.png)
+
+### Push the data from the Research Workspace to Staging
+First, run Egress DAG #1 to move files to the Staging Egress folder. Follow the same instructions as above to navigate to the Airflow page. 
+
+Once on the Airflow page, find the DAG named **[project-id]_Egress_1_Workspace_to_Staging_Inspection.**
+![Find the relevant Airflow DAG](./static/find_relevant_dag.png)
+
+Once on the DAG page, follow the steps to trigger the DAG, as instructed above. This DAG executes several tasks:
+-   An archive copy of the export files is created within the workspace.
+-   The export files are moved to the staging environment.
+-   A DLP inspection is run to scan the exported files for sensitive data.
+The DLP scan may take some time to run, so wait for all tasks to be marked as successful (dark green) before proceeding.
+
+### Check the DLP inspection report
+After Stage 1 is successfully completed, the DLP inspection findings are written to BigQuery.  To examine results, navigate to BigQuery by going to Google console webpage, typing BigQuery on the search bar, and selecting it from the list.
+![Big Query](./static/big_query.png)
+
+Once in BigQuery, on the Explorer tab on the left, click on the corresponding project, then on the table that corresponds to the scan that was done. The name will contain the UTC date and time of the scan, using the format **dlp_YYYY-MM-DD-HHMMSS**. You can verify the report’s creation time under the “Details” tab.
+![Big Query exporter tab](./static/big_query_exporter_tab.png)
+
+Select “Query > In new tab” to examine the results. The following default query will return a sample of 1000 results:
+```sh
+SELECT * FROM “table_id” LIMIT 1000
+```
+For more information on querying the DLP report, see the DLP Interpretation Guide (TODO Add section on DLP Interp. guide!)
+
+Click on Run to run the query and review the results of the scan. After running the query you will see the results on the lower half of the window:
+![Big Query scan result](./static/big_query_scan_result.png)
+
+### Pass or fail the inspection
+
+Once the results are reviewed, the Data Steward approves or denies movement to the external egress bucket.  They navigate back to the Airflow page and choose one of the following options:
+-   If DLP scan results are NOT approved, Data Steward fails the data export by running **Egress_2_Staging_Fail_inspection**. Once on the DAG page, follow the steps to trigger the DAG, as instructed above. The data will be fully deleted from staging, and only the archived copy will remain in the workspace.
+-   If DLP scan results ARE approved, Data Steward passes the data export by running **Egress_3_Staging_Pass_Inspection**. Once on the DAG page, follow the steps to trigger the DAG, as instructed above. The data will be transferred to the project’s external egress bucket, where the researchers will be able to access and share it.
+After the final egress DAG completes successfully, the Data Steward should notify the researchers either a) that their data is available in the external egress bucket or b) that their data export was denied and why.
+
+## Moving Files to Export
+You can use the gsutil cp command to copy data from your home directory to the Egress export folder in the workspace using the following steps. Use the gsutil ls command to see the list of folders in your workspace. Copy your file into the Egress folder, adding /export/yourfilename to the Egress folder path:
+```sh
+gsutil cp data_file.txt gs://egress_bucket_path/export/data_file.txt
+```
+![cp from export via gsutils](./static/gsutils_cp_export.png)
+
+## Auto-Inspection
+When files are added to the export folder, they are automatically scanned for sensitive data using the Data Loss Prevention API. This is the same tool that the Data Steward will use to examine your exported data and approve or deny the export, so you should review the results of auto-inspection carefully. Before notifying the Data Steward that an export is ready, make sure that the DLP inspection does not detect sensitive info, or that if it does, you are aware of the items it flags and can explain why they are false alarms.
+
+The DLP scan is automatically triggered by any new file in the export folder. It may take several minutes to run. When it is complete, a summary file will be written back to the “dlp” folder in the egress bucket.
+```sh
+gsutil ls gs://egress_bucket_path/dlp
+```
+Within this folder, a folder is created for each exported file, and within that are dated summary reports for each version.
+```sh
+gsutil ls gs://egress_bucket_path/dlp/data_file.txt/
+```
+You should see a file of the format **dlp_results_YYYY-MM-DD-HHMMSS** corresponding to approximately when you added the file to the export folder. Note that the scan takes about a minute to pick up new files, and may behave oddly if you upload several versions very close together.
+
+To see the summary file contents, use the command:
+```sh
+gsutil cat gs://egress_bucket_path/dlp/data_file.txt/dlp_results_YYYY-MM-DD-HHMMSS 
+```
+
+If sensitive information is detected, you will see it listed by type and count
+![Type and count of sensitive info](./static/sensitive_info_type_count.png)
+
+If no sensitive information is detected, you will see a clean scan report. Double-check that the “Processed bytes” and “Total estimated bytes” approximately line up with the size of your file–if both values are 0 it is likely that there was an error in the scan.
+![No sensitive info](./static/no_sensitive_info.png)
+
+
+
+
+
+
+
+
