@@ -14,7 +14,7 @@ The DLP scan is triggered by the Egress_2 script as part of the [data egress pro
 ## Viewing results from the DLP report
 
 This query, the most basic, fetches the first 100 flagged items in the report.
-```sh
+```sql
 SELECT
  quote,
  info_type.name,
@@ -37,7 +37,7 @@ To see more results, you can adjust the value of the `LIMIT` clause or remove it
 ## Sample Queries: selecting a subset of flagged items
 
 Select only high-sensitivity items
-```sh
+```sql
 SELECT quote, info_type.name, info_type.sensitivity_score.score, likelihood
 FROM `your_table_name`
 WHERE info_type.sensitivity_score.score = "SENSITIVITY_HIGH"
@@ -45,7 +45,7 @@ LIMIT 100
 ```
 
 Select only items that are high-sensitivity and have a likelihood higher than “possible”
-```sh
+```sql
 SELECT quote, info_type.name, info_type.sensitivity_score.score, likelihood
 FROM `your_table_name`
 WHERE info_type.sensitivity_score.score = "SENSITIVITY_HIGH"
@@ -54,14 +54,14 @@ LIMIT 100
 ```
 
 Select all items, sorted by type
-```sh
+```sql
 SELECT quote, info_type.name, info_type.sensitivity_score.score, likelihood
 FROM `your_table_name`
 ORDER BY info_type.name
 ```
 
 Select all items of type PERSON_NAME, ordered alphabetically
-```sh
+```sql
 SELECT quote, info_type.name, info_type.sensitivity_score.score, likelihood
 FROM `your_table_name`
 WHERE info_type.name = "PERSON_NAME"
