@@ -13,7 +13,14 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "lint": "remark . --use=remark-preset-lint-recommended --use=remark-mdx"
+    "lint": "remark --frail ."
+  },
+  "remarkConfig": {
+    "plugins": [
+      "remark-preset-lint-recommended",
+      "remark-mdx",
+      ["remark-lint-list-item-indent", false]
+    ]
   },
   "dependencies": {
     "@docusaurus/core": "^3.7.0",
