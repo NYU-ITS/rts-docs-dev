@@ -1,1 +1,82 @@
 # Managing Data Transfer
+
+Every research project that is using the Secure Research Data Environment (SRDE) must have an assigned Data Steward. The Data Steward is responsible for  ingesting to and egressing data from the secure environment, following the processes described below. Currently, the data steward role cannot be combined with other roles in the project, in other words, a data steward cannot also be a user/researcher in the project.
+
+:::tip[Data Steward role]
+The project PI must inform the SRDE team who the assigned Data Steward is for the research project before the project is deployed on the SRDE.
+
+:::
+
+## Data Ingestion process
+
+Ingesting data into the secure environment is a two-step process; First the Data Steward must upload the data onto the staging GCP Storage Bucket and then “push” the data into the secure Workspace environment.
+![Data ingestion process overview](./static/data_ingestion_process_overview.png)
+
+### Uploading Data to the Staging Area
+
+#### Option1: Using the Web Console Interface
+Log into GCP console, set project to your staging project (i.e. srde-staging-dev), and navigate on the side panel to Cloud Storage -> Buckets:
+![GCP Cloud Storage Buckets](./static/gcp_cloud_storage_buckets.png)
+
+Navigate to your research workspace’s corresponding Staging Ingress bucket:
+![GCP Cloud Storage staging ingress buckets](./static/gcp_staging_ingress_bucket.png)
+
+Copy data to the Staging Ingress bucket:
+![GCP Cloud Storage copy to ingress bucket](./static/gcp_copy_to_ingress_bucket.png)
+
+#### Option2: Using the CLI
+Follow the instructions in section 2 to install and configure gcloud on your workstation.  Once this is done, run the following command to find your workspace’s bucket:
+```sh
+gsutil ls | fgrep [Workspace Name]
+```
+
+The workspace name will be given to you by the SRDE team after your workspace has been provisioned.  The command above should output two buckets– one will be for data ingest (ingress) and the other will be for data egress:
+```sh
+nyu10003@cloudshell:~ (srde-staging-dev-cedd)$ gsutil ls | fgrep example
+gs://nyu-us-east4-example-staging-egress-9d94/
+gs://nyu-us-east4-example-staging-ingress-4bd9/
+```
+
+To ingest data into the SRDE, run the following command to copy individual files into the ingress bucket:
+```sh
+gsutil cp [FILENAME] gs://[INGRESS BUCKET]
+```
+
+So for instance, the following command would copy an individual text file (1661-0.txt) into the example ingress bucket:
+```sh
+gsutil cp 1661-0.txt gs://nyu-us-east4-example-staging-ingress-4bd9/
+```
+
+To copy a folder, you need to add -r after cp:
+```sh
+gsutil cp -r [FOLDER] gs://[INGRESS BUCKET]
+```
+
+We would use the following command to copy a folder named dataset into the example ingress bucket:
+```sh
+gsutil cp -r dataset gs://nyu-us-east4-example-staging-ingress-4bd9/
+```
+
+### Push Data to the Research Workspace Using Airflow
+Once the data is in the Staging Ingress bucket, navigate to Cloud Composer and click on Airflow:
+![Push data using airflow](./static/push_using_airflow.png)
+
+In Airflow you will see the DAG workflows for your project. If you do not see any DAGs, contact srde-support@nyu.edu with subject line “Missing Airflow Permissions”
+![Airflow permissions](./static/airflow_permissions.png)
+
+Once you see the workflows for your project, pick the one named **[project-id]_Ingress_1_Staging_to_Workspace**, which will bring you to the DAG page. On the DAG page, click on the “play” button at the top right to trigger the DAG:
+![DAG trigger](./static/dag_trigger.png)
+
+The DAG may take a few minutes to run. You can see its progress in the status display  on the bottom left.
+![DAG status](./static/dag_status.png)
+
+The display shows a list of tasks executed by the DAG. A light green square will appear next to the task when it is running, and turn dark green when it is complete. When all tasks have finished successfully, the DAG is done. 
+
+Researchers will now be able to see the data in the ingress bucket in the research project workspace.
+
+:::note[Access policy for Data Stewards]
+Data stewards do not have access to the research project workspace.
+:::
+
+Instructions for researchers who need to access the ingested data in the research workspace are found in the [Data Access section](02_data_access.mdx) of this document.
+
