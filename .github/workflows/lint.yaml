@@ -28,8 +28,5 @@ jobs:
       - name: Set up pixi in $PATH
         run: echo "$HOME/.pixi/bin" >> $GITHUB_PATH
 
-      - name: Install dependencies
-        run: pixi shell
-
       - name: Run linting check
         run: pixi run lint
