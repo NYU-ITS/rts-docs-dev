@@ -1,0 +1,4 @@
+# DLP Interpretation Guide
+
+Data Loss Prevention (DLP) is a tool provided by Google Cloud that automatically detects potentially sensitive information such as names, dates, social security numbers, credit card numbers, etc. As part of the SRDE egress process, we run a DLP scan to help the data steward more easily judge whether the data being exported is in compliance with the relevant data use agreement(s). The scan will flag any information it considers potentially sensitive, and it is up to the data steward to review the results and either approve the export or send it back to the researchers for further review.
+
