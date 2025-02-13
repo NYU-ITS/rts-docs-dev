@@ -73,7 +73,7 @@ For Singularity image available on nyu HPC greene,  please check the singularity
 For the most recent supported versions of PyTorch, please check the [PyTorch website](https://pytorch.org/get-started/locally/). 
 
 Launch the appropriate Singularity container in read/write mode (with the :rw flag)
-```
+```sh
 singularity exec --overlay overlay-15GB-500K.ext3:rw /scratch/work/public/singularity/cuda12.1.1-cudnn8.9.0-devel-ubuntu22.04.2.sif /bin/bash
 ```
 
@@ -336,7 +336,7 @@ Pkg.add("JuMP")
 ```
 
 Now exit from the container to launch a read only version to test (example below)
-```
+```julia
 ~/julia/my-julia
               _
   _       _ _(_)_     |  Documentation: https://docs.julialang.org
@@ -374,7 +374,7 @@ julia> optimize!(m)
 ```
 
 You can make the above code into a julia script to test batch jobs. Save the following as test-knitro.jl
-```
+```julia
 using Pkg
 using JuMP, KNITRO
 m = Model(with_optimizer(KNITRO.Optimizer))
@@ -389,7 +389,7 @@ You can add additional packages with commands like the one below.
 :::note
 Please do not install new packages when you have Julia jobs running, this may create issues with your Julia installation)
 :::
-```
+```julia
 ~/julia/my-julia-writable -e 'using Pkg; Pkg.add(["Calculus", "LinearAlgebra"])'
 ```
 
@@ -463,7 +463,7 @@ Knitro using the Interior-Point/Barrier Direct algorithm.
 
 WARNING: The initial point is a stationary point and only the first order
          optimality conditions have been verified.
-         
+
 EXIT: Locally optimal solution found.
 
 Final Statistics
@@ -538,7 +538,7 @@ julia --version
 ```
 
 Run julia to install packages
-```
+```julia
 julia
 > using Pkg
 > Pkg.add("KNITRO")
@@ -546,7 +546,7 @@ julia
 ```
 
 Set up a similar test script like the test-knitro.jl script above. Name it test.jl:
-```
+```julia
 using Pkg
 using JuMP, KNITRO
 m = Model(with_optimizer(KNITRO.Optimizer))
