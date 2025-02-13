@@ -14,6 +14,7 @@ Singularity is a free, cross-platform and open-source program that creates and e
 
 ## Using Singularity Overlays for Miniforge (Python & Julia)
 ### Preinstallation Warning
+:::warning
 If you have initialized Conda in your base environment, your prompt on Greene may show something like: 
 ```sh
 (base) [NETID@log-1 ~]$
@@ -38,6 +39,7 @@ unset __conda_setup
 ```
 
 The above code automatically makes your environment look for the default shared installation of Conda on the cluster and will sabotage  any attempts to install packages to a Singularity environment. Once removed or commented out, log out and back into the cluster for a fresh environment.
+:::
 
 ### Miniforge Environment PyTorch Example
 [Conda environments](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html) allow users to create customizable, portable work environments and dependencies to support specific packages or versions of software for research. Common conda distributions include Anaconda, Miniconda and Miniforge. Packages are available via "channels". Popular channels include "conda-forge" and "bioconda".  In this tutorial we shall use [Miniforge](https://github.com/conda-forge/miniforge) which sets "conda-forge" as the package channel. Traditional conda environments, however, also create a large number of files that can cut into quotas. To help reduce this issue, we suggest using [Singularity](https://docs.sylabs.io/guides/4.1/user-guide/), a container technology that is popular on HPC systems. Below is an example of how to create a pytorch environment using Singularity and Miniforge.
@@ -186,7 +188,9 @@ singularity exec --overlay /scratch/<NetID>/pytorch-example/my_pytorch.ext3:ro /
 #output: /ext3/miniforge3/lib/python3.8/site-packages/torch/__init__.py
 #output: 1.8.0+cu111
 ```
-***Note:*** the end ':ro' addition at the end of the pytorch ext3 image starts the image in read-only mode. To add packages you will need to use ':rw' to launch it in read-write mode.
+:::note
+ the end ':ro' addition at the end of the pytorch ext3 image starts the image in read-only mode. To add packages you will need to use ':rw' to launch it in read-write mode.
+:::
 
 ### Using your Singularity Container in a SLURM Batch Job
 Below is an example script of how to call a python script, in this case torch-test.py, from a SLURM batch job using your new Singularity image
@@ -291,7 +295,9 @@ source /ext3/env.sh
 pip install tensorboard
 ```
 
-***Note:*** Click here for information on how to configure your conda environment.
+:::note
+[Click here](./conda_environments.md) for information on how to configure your conda environment.
+:::
 
 Please also keep in mind that once the overlay image is opened in default read-write mode, the file will be locked. You will not be able to open it from a new process. Once the overlay is opened either in read-write or read-only mode, it cannot be opened in RW mode from other processes either. For production jobs to run, the overlay image should be open in read-only mode. You can run many jobs at the same time as long as they are run in read-only mode. In this ways, it will protect the computation software environment, software packages are not allowed to change when there are jobs running. 
 
@@ -379,7 +385,10 @@ m = Model(with_optimizer(KNITRO.Optimizer))
 optimize!(m)
 ```
 
-You can add additional packages with commands like the one below (***NOTE***: Please do not install new packages when you have Julia jobs running, this may create issues with your Julia installation)
+You can add additional packages with commands like the one below.
+:::note
+Please do not install new packages when you have Julia jobs running, this may create issues with your Julia installation)
+:::
 ```
 ~/julia/my-julia-writable -e 'using Pkg; Pkg.add(["Calculus", "LinearAlgebra"])'
 ```
@@ -454,7 +463,7 @@ Knitro using the Interior-Point/Barrier Direct algorithm.
 
 WARNING: The initial point is a stationary point and only the first order
          optimality conditions have been verified.
-
+         
 EXIT: Locally optimal solution found.
 
 Final Statistics

@@ -9,6 +9,7 @@ This page describes how to use your Singularity with conda environment in Open O
 The following commands must be run from the terminal. Information on accessing via the terminal can be found at the [Connecting to the HPC page](../02_connecting_to_hpc/01_connecting_to_hpc.md). 
 
 ### Preinstallation Warning
+:::warning
 If you have initialized Conda in your base environment, your prompt on Greene may show something like:
 ```sh
 (base) [NETID@log-1 ~]$
@@ -33,6 +34,7 @@ unset __conda_setup
 ```
 
 The above code automatically makes your environment look for the default shared installation of Conda on the cluster and will sabotage  any attempts to install packages to a Singularity environment. Once removed or commented out, log out and back into the cluster for a fresh environment.
+:::
 
 ### Prepare Overlay File 
 ```sh
@@ -150,7 +152,9 @@ singularity exec $nv \
   /scratch/work/public/singularity/cuda12.3.2-cudnn9.0.0-ubuntu-22.04.4.sif \
   /bin/bash -c "source /ext3/env.sh; $cmd $args"
 ```
-***WARNING:*** If you used a different overlay (/scratch/$USER/my_env/overlay-15GB-500K.ext3 shown above) or .sif file (/scratch/work/public/singularity/cuda12.3.2-cudnn9.0.0-ubuntu-22.04.4.sif shown above), you MUST change those lines in the command above to the files you used.
+:::warning
+If you used a different overlay (/scratch/$USER/my_env/overlay-15GB-500K.ext3 shown above) or .sif file (/scratch/work/public/singularity/cuda12.3.2-cudnn9.0.0-ubuntu-22.04.4.sif shown above), you MUST change those lines in the command above to the files you used.
+:::
 
 Edit the default kernel.json file by setting PYTHON_LOCATION and KERNEL_DISPLAY_NAME using a text editor like nano/vim.
 ```json
