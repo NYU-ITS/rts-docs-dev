@@ -1,6 +1,6 @@
 # Squash File System and Singularity
 
-View available datasets on the [Datasets page](./datasets.md).
+View available datasets on the [Datasets page](../04_datasets/01_intro.md).
 
 ## Working with Datasets
 Writable ext3 overlay images have conda environments installed inside, Singularity can work with squashFS for fixed datasets, such as the coco datasets.
