@@ -1,8 +1,3 @@
----
-sidebar_position: 3
-toc_max_heading_level: 3
----
-
 # Slurm: Main Commands
 
 Slurm offers many utility commands to work with, some of the most popularly used commands are:

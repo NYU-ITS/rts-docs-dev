@@ -1,27 +1,4 @@
----
-sidebar_position: 2 
----
-
 # Slurm Tutorial
-
-[getting and renewing an account page]: ../01_getting_started/02_getting_and_renewing_an_account.md
-
-- [Introduction to High Performance Computing Clusters](#introduction-to-high-performance-computing-clusters)
-
-- [Slurm Commands](#slurm-commands)
-
-- [Software and environment modules](#software-and-environment-modules)
-
-- [Batch Job Example](#batch-job-example)
-
-- [Interactive Job Example](#interactive-job-example)
-
-- [MPI Job Example](#mpi-job-example)
-
-- [GPU Job Example](#gpu-job-example)
-
-- [Array Job Example](#array-job-example)
-
 
 ## Introduction to High Performance Computing Clusters
 

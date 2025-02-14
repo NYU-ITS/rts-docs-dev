@@ -1,23 +1,5 @@
----
-sidebar_position: 3
-toc_max_heading_level: 2
----
-
 # Slurm - Submitting Jobs
 
-- [Batch vs Interactive Jobs](#batch-vs-interactive-jobs)
-
-- [Batch Jobs](#batch-jobs)
-
-- [R Job Example](#r-job-example)
-
-- [Array Jobs](#array-jobs)
-
-- [More Examples](#more-examples)
-
-- [GPU Jobs](#gpu-jobs)
-
-- [Interactive Jobs](#interactive-jobs)
 
 ## Batch vs Interactive Jobs
 

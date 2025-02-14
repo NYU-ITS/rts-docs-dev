@@ -43,7 +43,7 @@ cd /scratch/$USER/my_env
 cp -rp /scratch/work/public/overlay-fs-ext3/overlay-15GB-500K.ext3.gz .
 gunzip overlay-15GB-500K.ext3.gz
 ```
-Above we used the overlay file "overlay-15GB-500K.ext3.gz" which will contain all of the installed packages. There are more optional overlay files. You can find instructions on the following pages: [Singularity with Conda](./singularity_with_conda.md), [Squash File System and Singularity](./squash_file_system_and_singularity.md). 
+Above we used the overlay file "overlay-15GB-500K.ext3.gz" which will contain all of the installed packages. There are more optional overlay files. You can find instructions on the following pages: [Singularity with Conda](../07_containers/03_singularity_with_conda.md), [Squash File System and Singularity](../07_containers/04_squash_file_system_and_singularity.md). 
 
 ### Launch Singularity Environment for Installation
 ```sh
