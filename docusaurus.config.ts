@@ -145,7 +145,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.oneLight,
       darkTheme: prismThemes.palenight,
-      additionalLanguages: ['bash', 'shell-session', 'lua'],
+      additionalLanguages: ['bash', 'shell-session', 'lua', 'julia'],
     },
   } satisfies Preset.ThemeConfig,
 };
