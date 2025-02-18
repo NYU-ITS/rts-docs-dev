@@ -10,7 +10,7 @@
 
 This section deals with the eligibility for getting HPC accounts and the process to create new ones, renew existing oaccountsThis section deals with the eligibility for getting HPC accounts, the process to create new accounts, renew existing ones and touches on access policies after graduation fom NYU and access for non-NYU researchers.
 
-:::note
+:::info
 
 -   All **sponsored accounts** will be created for a period of 12 months, at which point a renewal process is required to continue to use the clusters
 -   Faculty, students and staff from the **NYU School of Medicine** require the sponsorship of an eligible NYU faculty member to access the NYU HPC clusters

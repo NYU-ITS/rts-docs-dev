@@ -14,28 +14,52 @@ const FeatureList: FeatureItem[] = [
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        Docusaurus was designed from the ground up to be easily installed and
-        used to get your website up and running quickly.
+        Seamless access to advanced computing resources, consultation services
+         and expertise for research.
       </>
     ),
   },
   {
-    title: 'Secure Data Research Environments',
+    title: 'High Speed Research Network',
     Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
-        Docusaurus lets you focus on your docs, and we&apos;ll do the chores. Go
-        ahead and move your docs into the <code>docs</code> directory.
+        The High Speed Research Network (HSRN) is NYU's high-throughput,
+        low-latency computer network dedicated to supporting data-intensive
+        sciences. 
+      </>
+    ),
+  },  
+  {
+    title: 'Pythia',
+    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    description: (
+      <>
+        The Pythia Platform is a suite of tools for researchers to harness
+        generative AI including a secure access to a chat portal, API access
+        to LLMs and an on-prem vector database.
       </>
     ),
   },
   {
-    title: 'And everything else!',
+    title: 'RTC',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        Extend or customize your website layout by reusing React. Docusaurus can
-        be extended while reusing the same header and footer.
+        Research Technology Cloud is our hybrid cloud platform for researchers
+        that includes access to an on-prem OpenShift cluster and access to
+        the Google Cloud Platform.
+      </>
+    ),
+  },
+  {
+    title: 'SRDE',
+    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    description: (
+      <>
+        The Secure Research Data Environment (SRDE) is a centralized secure
+         computing platform designed to support research projects that require
+          storage and computational resources specifically for sensitive data.
       </>
     ),
   },
