@@ -25,15 +25,15 @@ module load  python/intel/3.8.6
 ```
 
 ## Automatic deletion of your files
-This page describes the installation of packages on /scratch. One has to remember, though, that files stored in the HPC scratch file system are subject to the HPC Scratch old file purging policy: Files on the /scratch file system that have not been accessed for 60 or more days will be purged (read [more](./data_management.md)).
+This page describes the installation of packages on /scratch. One has to remember, though, that files stored in the HPC scratch file system are subject to the HPC Scratch old file purging policy: Files on the /scratch file system that have not been accessed for 60 or more days will be purged (read [more](../03_storage/06_data_management.md)).
 
 Thus you can consider the following options
 
 -   Reinstall your packages if some of the files get deleted
     -   You can do this manually 
     -   You can do this automatically. For example, within a workflow of a pipeline software like [Nextflow](https://www.nextflow.io/)
--   Pay for "Research Project Space" - read more [here](./research_project_space.md) 
--   Use Singularity and install packages within a corresponding overlay file - read more [here](./singularity_with_conda.md)  
+-   Pay for "Research Project Space" - read more [here](../03_storage/05_research_project_space.md) 
+-   Use Singularity and install packages within a corresponding overlay file - read more [here](../07_containers/03_singularity_with_conda.md)  
 
 ## Create virtual environment
 It is advisable to create private environment inside the project directory. This boosts reproducibility and does not use space in `/home/$USER`

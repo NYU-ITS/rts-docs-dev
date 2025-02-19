@@ -29,7 +29,7 @@ One of the ways to ensure the reproducibility of your results is to have an inde
 
 ### Disadvantages
 
-    -   Conda does not take advantage of packages already installed in the system (while [virtualenv and venv](./python_packages_with_virtual_environments.md) do)
+    -   Conda does not take advantage of packages already installed in the system (while [virtualenv and venv](./03_python_packages_with_virtual_environments.md) do)
     -   As you will see below, you may need to do additional steps to keep track of all installed packages (including those installed by pip and/or install.packages)
 
 ## Initializing Conda
@@ -42,15 +42,15 @@ module load anaconda3/2020.07
 Conda init can create problems with package installation, so we suggest using `source activate` instead of `conda activate`, even though conda activate is considered a best practice by the Anaconda developers.
 
 ### Automatic deletion of your files
-This page describes the installation of packages on /scratch. One has to remember, though, that files stored in the HPC scratch file system are subject to the HPC Scratch old file purging policy: Files on the /scratch file system that have not been accessed for 60 or more days will be purged (read more about [Data Management](./data_management.md).
+This page describes the installation of packages on /scratch. One has to remember, though, that files stored in the HPC scratch file system are subject to the HPC Scratch old file purging policy: Files on the /scratch file system that have not been accessed for 60 or more days will be purged (read more about [Data Management](../03_storage/06_data_management.md).
 
 Thus you can consider the following options
 
     -   Reinstall your packages if some of the files get deleted
         -   You can do this manually 
         -   You can do this automatically. For example, within a workflow of a pipeline software like [Nextflow](https://www.nextflow.io/)
-    -   Pay for "Research Project Space" - read more [here](./research_project_space.md)
-    -   Use Singularity and install packages within a corresponding overlay file - read more [here](./singularity_with_conda.md)  
+    -   Pay for "Research Project Space" - read more [here](../03_storage/05_research_project_space.md)
+    -   Use Singularity and install packages within a corresponding overlay file - read more [here](../07_containers/03_singularity_with_conda.md)  
 
 ## Python
 Load anaconda module
@@ -180,7 +180,7 @@ Conda + pakcrat: specific version of R and install.packages (R)
     -   do not use 'conda install' at all
     -   use renv
     -   install all the packages using install.packages
-    -   use [renv as described here](./r_packages_with_renv.md) to keep track of the environment
+    -   use [renv as described here](../09_ood/r_packages_with_renv.md) to keep track of the environment
 
 In order for conda + renv to work, you need to add following steps:
 
