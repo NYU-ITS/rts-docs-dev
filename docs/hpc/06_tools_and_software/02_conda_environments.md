@@ -23,14 +23,14 @@ One of the ways to ensure the reproducibility of your results is to have an inde
 ## Advantages/disadvantages of using Conda
 ### Advantages
 
-    -   A lot of pre-compiled packages (fast and easy to install)
-    -   Note for Python: pip also offers pre-compiled packages (wheels). List can be found here https://pythonwheels.com. However, Conda has a significantly larger number of pre-compiled packages.
-    -   Compiled packages use highly efficient Intel Math Kernel Library (MKL) library
+-   A lot of pre-compiled packages (fast and easy to install)
+-   Note for Python: pip also offers pre-compiled packages (wheels). List can be found here https://pythonwheels.com. However, Conda has a significantly larger number of pre-compiled packages.
+-   Compiled packages use highly efficient Intel Math Kernel Library (MKL) library
 
 ### Disadvantages
 
-    -   Conda does not take advantage of packages already installed in the system (while [virtualenv and venv](./03_python_packages_with_virtual_environments.md) do)
-    -   As you will see below, you may need to do additional steps to keep track of all installed packages (including those installed by pip and/or install.packages)
+-   Conda does not take advantage of packages already installed in the system (while [virtualenv and venv](./03_python_packages_with_virtual_environments.md) do)
+-   As you will see below, you may need to do additional steps to keep track of all installed packages (including those installed by pip and/or install.packages)
 
 ## Initializing Conda
 Load anaconda module
@@ -46,11 +46,11 @@ This page describes the installation of packages on /scratch. One has to remembe
 
 Thus you can consider the following options
 
-    -   Reinstall your packages if some of the files get deleted
-        -   You can do this manually 
-        -   You can do this automatically. For example, within a workflow of a pipeline software like [Nextflow](https://www.nextflow.io/)
-    -   Pay for "Research Project Space" - read more [here](../03_storage/05_research_project_space.md)
-    -   Use Singularity and install packages within a corresponding overlay file - read more [here](../07_containers/03_singularity_with_conda.md)  
+-   Reinstall your packages if some of the files get deleted
+    -   You can do this manually 
+    -   You can do this automatically. For example, within a workflow of a pipeline software like [Nextflow](https://www.nextflow.io/)
+-   Pay for "Research Project Space" - read more [here](../03_storage/05_research_project_space.md)
+-   Use Singularity and install packages within a corresponding overlay file - read more [here](../07_containers/03_singularity_with_conda.md)  
 
 ## Python
 Load anaconda module
@@ -176,19 +176,19 @@ Command `conda list --export` will not include packages installed by "install.pa
 
 Conda + pakcrat: specific version of R and install.packages (R)
 
-    -   use conda to install version of R you need
-    -   do not use 'conda install' at all
-    -   use renv
-    -   install all the packages using install.packages
-    -   use [renv as described here](../09_ood/r_packages_with_renv.md) to keep track of the environment
+-   use conda to install version of R you need
+-   do not use 'conda install' at all
+-   use renv
+-   install all the packages using install.packages
+-   use [renv as described here](../09_ood/r_packages_with_renv.md) to keep track of the environment
 
 In order for conda + renv to work, you need to add following steps:
 
-    -   After you activate conda AND before loading R
+-   After you activate conda AND before loading R
     ```sh
     export R_RENV_DEFAULT_LIBPATHS=<path_to_project_directory>/renv/lib/x86_64-conda_cos6-linux-gnu/<version>/
     ```
-    - Start R and execute
+-   Start R and execute
     ```sh
     .libPaths(c(.libPaths(), Sys.getenv("R_RENV_SYSTEM_LIBRARY")))
     ```
