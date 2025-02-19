@@ -1,12 +1,4 @@
 # Conda Environments (Python, R)
--   [What is Conda?](#what-is-conda)
--   [Advantages/disadvantages of using Conda](#advantagesdisadvantages-of-using-conda)
--   [Initializing Conda](#initializing-conda)
-    -   [Automatic deletion of your files](#automatic-deletion-of-your-files)
--   [Python](#python)
--   [R](#r)
--   [Reproducibility](#reproducibility)
--   [Use conda env in a batch script](#use-conda-env-in-a-batch-script)
 
 ## What is Conda?
 Package, dependency and environment management for any language—Python, R, Ruby, Lua, Scala, Java, JavaScript, C/ C++, FORTRAN, and more.

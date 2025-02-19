@@ -1,14 +1,5 @@
 # Python Packages with Virtual Environments
 
--   [Create project directory and load Python module](#create-project-directory-and-load-python-module)
--   [Automatic deletion of your files](#automatic-deletion-of-your-files)
--   [Create virtual environment](#create-virtual-environment)
-    -   [virtualenv](#virtualenv)
-    -   [venv](#venv)
--   [Install packages. Keep things reproducible](#install-packages-keep-things-reproducible)
--   [Close an Activated Virtual Environment](#close-an-activated-virtual-environment)
--   [Use with sbatch](#use-with-sbatch)
-
 In order to be able to install new Python packages and make your work reproducible, please use virtual environments.
 
 There is more than one way to create a private environment in Python.

@@ -7,7 +7,7 @@ Say your R code is in directory /scratch/$USER/projects/project1
 ```sh
 cd /scratch/$USER/projects/project1
 module purge
-module load r/gcc/4.1.2
+module load r/gcc/4.4.0
 
 R
 ```
@@ -32,15 +32,15 @@ To avoid filling up your home directory, we advise to set up path to alternative
 ```sh   
 mkdir -p /scratch/$USER/.cache/R/renv
 ```
--   Put the following into .Renviron file withing the R project directory (`/scratch/$USER/projects/project1` in this example)
+-   Create a file in you project directory named .Renviron and put the following in in the file. It is the R project directory (`/scratch/$USER/projects/project1`) in this example.
 ```sh
 RENV_PATHS_ROOT=/scratch/<USER_NETID>/.cache/R/renv
 ```
 
 ### Init renv
-The renv package is already installed for module `r/gcc/4.1.2`. You need to install it yourself if you use other R module version
+The renv package is already installed for module `r/gcc/4.4.0`. You need to install it yourself if you use other R module version
 ```R
-## Do this if renv is not available (already installed for r/gcc/4.1.2)
+## Do this if renv is not available (already installed for r/gcc/4.4.0)
 # install.packages("renv")  ## By default this will install renv package into a sub-directory within your home directory
 
 ## init renv in project's directory
@@ -49,10 +49,10 @@ renv::init(".")
 
 -   Restart R for renv to take effect. Once you start R, your renv environment will be loaded automatically.
 ```R
-R version 4.1.2 (2021-11-01) -- "Bird Hippie"
+R version 4.4.0 (2024-04-24) -- "Puppy Cup"
 ...
 
-* Project '/scratch/$USER/projects/project1' loaded. [renv 0.14.0]
+* Project '/scratch/$USER/projects/project1' loaded. [renv 1.0.7]
 ```
 
 ### Check
@@ -162,7 +162,7 @@ renv::snapshot()
 ```R
 ## Reproduce environment
 module purge
-module load r/gcc/4.1.2
+module load r/gcc/4.4.0
 R
 renv::restore()
 renv::init()
