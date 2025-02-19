@@ -1,20 +1,5 @@
 # R Packages with renv
 
--   [Setup](#setup)
-    -   [Automatic deletion of your files](#automatic-deletion-of-your-files)
-    -   [Cache directory setup](#cache-directory-setup)
-    -   [Init renv](#init-renv)
-    -   [Check](#check)
-    -   [Add/remove, etc. packages](#addremove-etc-packages)
-    -   [Clean up](#clean-up)
-    -   [Recommended Workflow](#recommended-workflow)
--   [Use with sbatch](#use-with-sbatch)
--   [Store and Share your R Project's R version and R Package Versions](#store-and-share-your-r-projects-r-version-and-r-package-versions)
-    -   [Reproduce Environment](#reproduce-environment)
-    -   [What to save/publish/commit with Git](#what-to-savepublishcommit-with-git)
-    -   [Migrating from Packrat](#migrating-from-packrat)
--   [Useful links](#useful-links)
-
 You may use the renv R package to create a personal R Project environment for R packages. Documentation on renv can be found on the [RStudio site](https://rstudio.github.io/renv/).
 
 ## Setup

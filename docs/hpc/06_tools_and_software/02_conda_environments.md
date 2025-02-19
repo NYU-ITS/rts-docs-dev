@@ -180,7 +180,7 @@ Conda + pakcrat: specific version of R and install.packages (R)
 -   do not use 'conda install' at all
 -   use renv
 -   install all the packages using install.packages
--   use [renv as described here](../09_ood/r_packages_with_renv.md) to keep track of the environment
+-   use [renv as described here](../06_tools_and_software/04_r_packages_with_renv.md) to keep track of the environment
 
 In order for conda + renv to work, you need to add following steps:
 
