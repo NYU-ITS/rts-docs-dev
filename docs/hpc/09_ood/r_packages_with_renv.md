@@ -142,12 +142,12 @@ renv::clean() # remove packages not recorded in the lockfile from the target lib
 ### Recommended Workflow
 The general workflow when working with renv is:
 
-1.   Call `renv::init()` to initialize a new project-local environment with a private R library,
-2.   Work in the project as normal, installing and removing new R packages as they are needed in the project,
-3.   Call `renv::snapshot()` to save the state of the project library to the lockfile (called `renv.lock`),
+1.  Call `renv::init()` to initialize a new project-local environment with a private R library,
+2.  Work in the project as normal, installing and removing new R packages as they are needed in the project,
+3.  Call `renv::snapshot()` to save the state of the project library to the lockfile (called `renv.lock`),
     -   By default, `renv::snapshot()` will only capture packages listed in your R scripts within the R Project. For more options read the [`renv::snapshot()` documentation](https://rstudio.github.io/renv/reference/snapshot.html).
-4.   Continue working on your project, installing and updating R packages as needed.
-5.   If needed, call `renv::restore()` to revert to the previous state as encoded in the lockfile if your attempts to update packages introduced some new problems.
+4.  Continue working on your project, installing and updating R packages as needed.
+5.  If needed, call `renv::restore()` to revert to the previous state as encoded in the lockfile if your attempts to update packages introduced some new problems.
 
 The `renv::init()` function attempts to ensure the newly-created project library includes all R packages currently used by the project. It does this by crawling R files within the project for dependencies with the `renv::dependencies()` function. The discovered packages are then installed into the project library with the `renv::hydrate()` function, which will also attempt to save time by copying packages from your user library (rather than reinstalling from CRAN) as appropriate.
 
@@ -164,7 +164,7 @@ Before you launch sbatch job, you need to make sure your project renv environmen
 #### Reproduce Environment
 If you already have file renv.lock or bundle file skip step 1
 
-1.   In the original location (your own laptop for example) go to project directory and execute
+1.  In the original location (your own laptop for example) go to project directory and execute
 (Make sure the whole path to project directory and names of your script files don't have empty spaces!)
 ```R
 R
@@ -172,8 +172,8 @@ R
 renv::init()
 renv::snapshot()
 ```
-2.   Take file renv.lock and copy it to a new location for the project
-3.   At the new location - restore environment: go to directory of the project and execute. (Make sure version of R is the same)
+2.  Take file renv.lock and copy it to a new location for the project
+3.  At the new location - restore environment: go to directory of the project and execute. (Make sure version of R is the same)
 ```R
 ## Reproduce environment
 module purge
