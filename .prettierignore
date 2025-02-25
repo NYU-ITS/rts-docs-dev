@@ -1,0 +1,6 @@
+*.md
+*.mdx
+
+/pnpm-lock.yaml
+
+/.github/
