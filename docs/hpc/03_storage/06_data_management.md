@@ -16,7 +16,7 @@ Below is a list of file systems with their characteristics and a summary table. 
 -   Please note that only the Office of Sponsored Projects (OSP) and Global Office of Information Security (GOIS) are empowered to classify the risk categories of data.
 
 ### High Risk Data - Secure Research Data Environments (SRDE) Approved
-Because the HPC system is not approved for High Risk data, we recommend using an approved system like the  [Secure Research Data Environments (SRDE)](./10_secure_research_data_environment.md).
+Because the HPC system is not approved for High Risk data, we recommend using an approved system like the  [Secure Research Data Environments (SRDE)](../../srde/01_getting_started/01_intro.md).
 
 ## Data Storage options in the HPC Environment
 ### User Home Directories
@@ -75,7 +75,7 @@ The HPC team makes available a number of public sets that are commonly used in a
 
 For some of the datasets users must provide a signed usage agreement before accessing.
 
-Public datasets available on the HPC clusters can be viewed on the [Datasets page](./11_datasets.md).
+Public datasets available on the HPC clusters can be viewed on the [Datasets page](../01_getting_started/01_intro.md).
 
 ### HPC Archive
 Once the Analysis stage of the research data lifecycle has completed, <ins>_HPC users should **tar** their data and code into a single tar.gz file and then copy the  file to their archive directory (**`/archive/$USER`**_).</ins> The HPC Archive file system is not accessible by running jobs; it is suitable for long-term data storage. Each user has access to a default disk quota of **2TB** and ***20,000 inode (files) limit***. The rather low limit on the number of inodes per user is intentional.  The archive file system is available only ***on login nodes*** of Greene. The archive file system is backed up daily.
