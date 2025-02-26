@@ -10,9 +10,9 @@ The following sections will outline basic ways to connect to the Greene cluster.
 
 If you are connecting from a remote location that is not on the NYU network (your home for example), you have two options:
 
-1. **VPN Option:** [Set up your computer to use the NYU VPN][nyu vpn link]. Once you've created a VPN connection, you can proceed as if you were connected to the NYU net
+1.  **VPN Option:** [Set up your computer to use the NYU VPN][nyu vpn link]. Once you've created a VPN connection, you can proceed as if you were connected to the NYU net
 
-2. **Gateway Option:** Go through our gateway servers (example below). Gateways are designed to support only a very minimal set of commands and their only purpose is to let users connect HPC systems without needing to first connect to the VPN
+2.  **Gateway Option:** Go through our gateway servers (example below). Gateways are designed to support only a very minimal set of commands and their only purpose is to let users connect HPC systems without needing to first connect to the VPN
 
 You do not need to use the NYU VPN or gateways if you are connected to the NYU network (wired connection in your office or WiFi) or if you have VPN connection initiated. In this case you can ssh directly to the clusters.
 
@@ -52,16 +52,16 @@ Instructions on WSL installation can be found here: [https://docs.microsoft.com/
 
 Instead of typing your password every time you need to log in, you can also specify an ssh key.
 
-- Only do that on the computer you trust
+-   Only do that on the computer you trust
 
-- Generate ssh key pair (terminal in Linux/Mac or cmd/WSL in Windows):
+-   Generate ssh key pair (terminal in Linux/Mac or cmd/WSL in Windows):
     [https://www.ssh.com/ssh/keygen/][ssh instructions keygen link]
 
-- Note the path to ssh key files. Don't share key files with anybody - anybody with this key file can login to your account
+-   Note the path to ssh key files. Don't share key files with anybody - anybody with this key file can login to your account
 
-- Log into cluster using regular login/password and then add the content of generated public key file (the one with .pub) to `$HOME/.ssh/authorized_keys` on cluster
+-   Log into cluster using regular login/password and then add the content of generated public key file (the one with .pub) to `$HOME/.ssh/authorized_keys` on cluster
 
-- Next time you will log into cluster no password will be required
+-   Next time you will log into cluster no password will be required
 
 For additional recommendations on how to configure your SSH sessions, see the \[ssh configuring and x11 forwarding page].
 

@@ -129,17 +129,17 @@ This is the equivalent to running "ssh hpcgwtunnel" in the reusable tunnel instr
 
 ### Creating the tunnel
 
-1. First open Putty and prepare to log in to gw.hpc.nyu.edu. If you saved your session during that process, you can load it by selecting from the "Saved Sessions" box and hitting "Load". Don't hit "Open" yet!
+1.  First open Putty and prepare to log in to gw.hpc.nyu.edu. If you saved your session during that process, you can load it by selecting from the "Saved Sessions" box and hitting "Load". Don't hit "Open" yet!
 
-2. Under "Connection" -> "SSH", just below "X11", select "Tunnels
+2.  Under "Connection" -> "SSH", just below "X11", select "Tunnels
 
-3. Write "8026" (the port number) in the "Source port" box, and "greene.hpc.nyu.edu:22" (the machine you wish to tunnel to - 22 is the port that ssh listens on) in the 	"Destination" box
+3.  Write "8026" (the port number) in the "Source port" box, and "greene.hpc.nyu.edu:22" (the machine you wish to tunnel to - 22 is the port that ssh listens on) in the 	"Destination" box
 
-4. Click "Add". You can repeat step 3 with a different port number and a different destination. If you do this you will create multiple tunnels, one to each destination
+4.  Click "Add". You can repeat step 3 with a different port number and a different destination. If you do this you will create multiple tunnels, one to each destination
 
-5. Before hitting "Open", go back to the "Sessions" page, give the session a name ("hpcgw_tunnel") and hit "Save". Then next time you need not do all this again, just load the saved session
+5.  Before hitting "Open", go back to the "Sessions" page, give the session a name ("hpcgw_tunnel") and hit "Save". Then next time you need not do all this again, just load the saved session
 
-6. Hit "Open" to login in to gw.hpc.nyu.edu and create the tunnel. A terminal window will appear, asking for your login name (NYU NetID) and password (NYU password). 	Windows may also ask you to allow certain connections through its firewall - this is so you can ssh to port 8026 on your workstation - the entrance to the tunnel
+6.  Hit "Open" to login in to gw.hpc.nyu.edu and create the tunnel. A terminal window will appear, asking for your login name (NYU NetID) and password (NYU password). 	Windows may also ask you to allow certain connections through its firewall - this is so you can ssh to port 8026 on your workstation - the entrance to the tunnel
 
 
 :::note
@@ -150,19 +150,19 @@ Using your SSH tunnel: To log in via the tunnel, first the tunnel must be open. 
 
 Starting the tunnel: During a session, you need only do this once - as long as the tunnel is open, new connections will go over it.
 
-1. Start Putty.exe (again, if necessary), and load the session you saved in settings during procedure above
+1.  Start Putty.exe (again, if necessary), and load the session you saved in settings during procedure above
 
-2. Hit "Open", and log in to the bastion host with your NYU NetID and password. This will create the tunnel. 
+2.  Hit "Open", and log in to the bastion host with your NYU NetID and password. This will create the tunnel. 
 
 ### Logging in via your SSH tunnel
 
-1. Start the second Putty.exe. In the "Host Name" box, write "localhost" and in the "Port" box, write "8026" (or whichever port number you specified when you set up the tunnel in the procedure above). We use "localhost" because the entrance of the tunnel is actually on this workstation, at port 8026
+1.  Start the second Putty.exe. In the "Host Name" box, write "localhost" and in the "Port" box, write "8026" (or whichever port number you specified when you set up the tunnel in the procedure above). We use "localhost" because the entrance of the tunnel is actually on this workstation, at port 8026
 
-2. Go to "Connections" -> "SSH" -> "X11" and check "Enable X11 forwarding"
+2.  Go to "Connections" -> "SSH" -> "X11" and check "Enable X11 forwarding"
 
-3. Optionally, give this session a name (in "Saved Sessions") and hit "Save" to save it. Then next time instead of steps 1 and 2 you can simply load this saved session
+3.  Optionally, give this session a name (in "Saved Sessions") and hit "Save" to save it. Then next time instead of steps 1 and 2 you can simply load this saved session
 
-4. Hit "Open". You will again get a terminal window asking for your login (NYU NetID) and password (NYU password). You are now logged in to the HPC cluster!
+4.  Hit "Open". You will again get a terminal window asking for your login (NYU NetID) and password (NYU password). You are now logged in to the HPC cluster!
 
 ## X11 Forwarding
 

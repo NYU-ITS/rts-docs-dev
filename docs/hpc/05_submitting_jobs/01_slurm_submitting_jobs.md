@@ -3,10 +3,10 @@
 
 ## Batch vs Interactive Jobs
 
-- HPC workloads are usually better suited to *batch processing* than *interactive* working.
-- A batch job is sent to the system when submitted with an ~sbatch~ command. 
-- The working pattern we are all familiar with is *interactive* - where we type ( or click ) something interactively, and the computer performs the associated action. Then we type ( or click ) the next thing.
-- Comments at the start of the script, which match a special pattern ( #SBATCH ) are read as Slurm options.
+-   HPC workloads are usually better suited to *batch processing* than *interactive* working.
+-   A batch job is sent to the system when submitted with an ~sbatch~ command. 
+-   The working pattern we are all familiar with is *interactive* - where we type ( or click ) something interactively, and the computer performs the associated action. Then we type ( or click ) the next thing.
+-   Comments at the start of the script, which match a special pattern ( #SBATCH ) are read as Slurm options.
 
 ### The trouble with interactive environments
 
@@ -14,24 +14,24 @@ There is a reason why GUIs are less common in HPC environments: **point-and-clic
 
 The job might not start immediately, and might take hours or days, so we prefer a *batch* approach:
 
-- Plan the sequence of commands which will perform the actions we need
-    - Write them into a script.
+-   Plan the sequence of commands which will perform the actions we need
+    -   Write them into a script.
 
 I can now run the script interactively, which is a great way to save effort if i frequently use the same workflow, or ...
-- Submit the script to a batch system, to run on dedicated resources when they become available.
+-   Submit the script to a batch system, to run on dedicated resources when they become available.
 
 ### Where does the output go ?
 
-- The batch system writes stdout and stderr from a job to a file named for example *"slurm-12345.out"*
-    - You can change either stdout or stderr using sbatch options.
-- While a job is running, it caches the stdout an stderr in the job working directory.
-- You can use redirection to send output of a specific command into a file.
+-   The batch system writes stdout and stderr from a job to a file named for example *"slurm-12345.out"*
+    -   You can change either stdout or stderr using sbatch options.
+-   While a job is running, it caches the stdout an stderr in the job working directory.
+-   You can use redirection to send output of a specific command into a file.
 
 ### Writing and Submitting a Job
 
 There are two aspects to a batch job script:
-- A set of *SBATCH* directives describing the resources required and other information about the job.
-- The script itself, comprised of commands to set up and perform the computations without additional user interaction.
+-   A set of *SBATCH* directives describing the resources required and other information about the job.
+-   The script itself, comprised of commands to set up and perform the computations without additional user interaction.
 
 ### A simple example
 
@@ -222,93 +222,93 @@ sbatch --nodes=2 --ntasks-per-node=4 my_script.sh
 
 ### Options to manage job output
 
-- `-J jobname`
-    - Give the job a name. The default is the filename of the job script. Within the job, `$SLURM_JOB_NAME` expands to the job name.
+-   `-J jobname`
+    -   Give the job a name. The default is the filename of the job script. Within the job, `$SLURM_JOB_NAME` expands to the job name.
 
-- `-o path/for/stdout`
-    - Send `stdout` to `path/for/stdout`. The default filename is slurm-`${SLURM_JOB_ID}.out`, e.g. slurm-`12345.out`, in the directory from which the job was submitted.
+-   `-o path/for/stdout`
+    -   Send `stdout` to `path/for/stdout`. The default filename is slurm-`${SLURM_JOB_ID}.out`, e.g. slurm-`12345.out`, in the directory from which the job was submitted.
 
-- `-e path/for/stderr`
-    - Send `stderr` to `path/for/stderr`.
+-   `-e path/for/stderr`
+    -   Send `stderr` to `path/for/stderr`.
 
-- `--mail-user=my_email_address@nyu.edu`
-    - Send mail to my_email_address@nyu.edu when certain events occur.
+-   `--mail-user=my_email_address@nyu.edu`
+    -   Send mail to my_email_address@nyu.edu when certain events occur.
 
-- `--mail-type=type`
-    - Valid type values are NONE, BEGIN, END, FAIL, REQUIRE, ALL.
+-   `--mail-type=type`
+    -   Valid type values are NONE, BEGIN, END, FAIL, REQUIRE, ALL.
 
 ### Options to set the job environment: 
 
 - `--export=VAR1,VAR2="some value",VAR3`
-    - Pass variables to the job, either with a specific value (the `VAR=` form) or from the submitting environment ( without "`=`" )
+    -   Pass variables to the job, either with a specific value (the `VAR=` form) or from the submitting environment ( without "`=`" )
 
-    - `--get-user-env`\[=timeout]\[mode]
-    - Run something like "su `-` \<username\> -c /usr/bin/env" and parse the output. Default timeout is 8 seconds. The mode value can be "S", or "L" in which case "su" is executed with "`-`" option.
+    -   `--get-user-env`\[=timeout]\[mode]
+    -   Run something like "su `-` \<username\> -c /usr/bin/env" and parse the output. Default timeout is 8 seconds. The mode value can be "S", or "L" in which case "su" is executed with "`-`" option.
 
 ### Options to request compute resources
 
-- `-t, --time=time`
-    - `Set a limit on the total run time. Acceptable formats include "minutes", "minutes:seconds", "hours:minutes:seconds", "days-hours", "days-hours:minutes" and "days-hours:minutes:seconds"`.
+-   `-t, --time=time`
+    -   `Set a limit on the total run time. Acceptable formats include "minutes", "minutes:seconds", "hours:minutes:seconds", "days-hours", "days-hours:minutes" and "days-hours:minutes:seconds"`.
 
-- `--mem=MB`
-    - Maximum memory per node the job will need in MegaBytes
+-   `--mem=MB`
+    -   Maximum memory per node the job will need in MegaBytes
 
-- `--mem-per-cpu=MB`
-    - `Memory required per allocated CPU in MegaBytes`
+-   `--mem-per-cpu=MB`
+    -   `Memory required per allocated CPU in MegaBytes`
 
-- `-N, --node=num`
-    - Number of nodes are required. Default is 1 node.
-    - `-n, --ntasks=num`
-    - Maximum number tasks will be launched. Default is one task per node.
-    - `--ntasks-per-node=ntasks`
-    - Request that ntasks be invoked on each node.
-    - `-c, --cpus-per-task=ncpus`
-    - Require ncpus number of CPU cores per task. Without this option, allocate one core per task.
-        - Requesting the resources you need, as accurately as possible, allows your job to be started at the earliest opportunity as well as helping the system to schedule work efficiently to everyone's benefit.
+-   `-N, --node=num`
+    -   Number of nodes are required. Default is 1 node.
+    -   `-n, --ntasks=num`
+    -   Maximum number tasks will be launched. Default is one task per node.
+    -   `--ntasks-per-node=ntasks`
+    -   Request that ntasks be invoked on each node.
+    -   `-c, --cpus-per-task=ncpus`
+    -   Require ncpus number of CPU cores per task. Without this option, allocate one core per task.
+        -   Requesting the resources you need, as accurately as possible, allows your job to be started at the earliest opportunity as well as helping the system to schedule work efficiently to everyone's benefit.
 
 ### Options for running interactively on the compute nodes with srun
 
-- `-nnum`
-    - `Specify the number of tasks to run, eg. -n4. Default is one CPU core per task.` Don't just submit the job, but also wait for it to start and connect `stdout`, `stderr`and `stdin` to the current terminal.
+-   `-nnum`
+    -   `Specify the number of tasks to run, eg. -n4. Default is one CPU core per task.` Don't just submit the job, but also wait for it to start and connect `stdout`, `stderr`and `stdin` to the current terminal.
 
-- `-ttime`
-    - Request job running duration, eg. `-t1:30:00`
+-   `-ttime`
+    -   Request job running duration, eg. `-t1:30:00`
 
-- `--mem=MB`
-    - Specify the real memory required per node in MegaBytes, eg. `--mem=4000`
-    - `--pty`
-    - Execute the first task in pseudo terminal mode, eg. `--pty /bin/bash`, to start a bash command shell
+-   `--mem=MB`
+    -   Specify the real memory required per node in MegaBytes, eg. `--mem=4000`
+    -   `--pty`
+    -   Execute the first task in pseudo terminal mode, eg. `--pty /bin/bash`, to start a bash command shell
 
-- `--x11`
-    - Enable X forwarding, so programs using a GUI can be used during the session (provided you have X forwarding to your workstation set up)
-    - To leave an interactive batch session, type `exit` at the command prompt
+-   `--x11`
+    -   Enable X forwarding, so programs using a GUI can be used during the session (provided you have X forwarding to your workstation set up)
+    -   To leave an interactive batch session, type `exit` at the command prompt
 
 ### Options for delaying starting a job
 
-- `--begin=time`
-    - Delay starting this job until after the specified date and time, eg. `--begin=9:42:00`, to start the job at 9:42:00 am
+-   `--begin=time`
+    -   Delay starting this job until after the specified date and time, eg. `--begin=9:42:00`, to start the job at 9:42:00 am
 
-- `-d, --dependency=dependency_list`
-    - (More info here [https://slurm.schedmd.com/sbatch.html](https://slurm.schedmd.com/sbatch.html))
-    - Example 1
-        - `--dependency=afterok:12345`, to delay starting this job until the job 12345 has completed successfully
-    - Example 2
-        - Let us say job 1 uses sbatch file job1.sh, and job 2 uses job2.sh
-        - Inside the batch file of the second job (job2.sh) add
-        - `#SBATCH --dependency=afterok:$job1`
-        - Start the first job and get id of the job
-        - `job1=$(echo $(sbatch job1.sh) | grep -Eo "[0-9]+")`
-        - Schedule second jobs to start when the first one ends
-        - `sbatch job2.sh`
+-   `-d, --dependency=dependency_list`
+    -   (More info here [https://slurm.schedmd.com/sbatch.html](https://slurm.schedmd.com/sbatch.html))
+    -   Example 1
+        -   `--dependency=afterok:12345`, to delay starting this job until the job 12345 has completed successfully
+    -   Example 2
+        -   Let us say job 1 uses sbatch file job1.sh, and job 2 uses job2.sh
+        -   Inside the batch file of the second job (job2.sh) add
+        -   `#SBATCH --dependency=afterok:$job1`
+        -   Start the first job and get id of the job
+        -   `job1=$(echo $(sbatch job1.sh) | grep -Eo "[0-9]+")`
+        -   Schedule second jobs to start when the first one ends
+        -   `sbatch job2.sh`
 
 ### Options for running many similar jobs
 
-- `-a, --array=indexes`
-    - Submit an array of jobs with array ids as specified. Array ids can be specified as a numerical range, a comma-seperated list of numbers, or as some combination of the two. Each job instance will have an environment variable `SLURM_ARRAY_JOB_ID` and `SLURM_ARRAY_TASK_ID`. For example:
-    - `--array=1-11`, to start an array job with index from 1 to 11
-    - `--array=1-7:2`, to submit an array job with index step size 2
-    - `--array=1-9%4`, to submit an array job with simultaneously running job elements set to 4
-    - The srun command is similar to `pbsdsh`. It launches tasks on allocated resources
+-   `-a, --array=indexes`
+    -   Submit an array of jobs with array ids as specified. Array ids can be specified as a numerical range, a comma-seperated list of numbers, or as some combination of the two. Each job instance will have an environment variable `SLURM_ARRAY_JOB_ID` and `SLURM_ARRAY_TASK_ID`. For example:
+    -   `--array=1-11`, to start an array job with index from 1 to 11
+    -   `--array=1-7:2`, to submit an array job with index step size 2
+    -   `--array=1-9%4`, to submit an array job with simultaneously running job elements set to 4
+    -   The srun command is similar to `pbsdsh`. It launches tasks on allocated resources
 
 ## R Job Example
 
