@@ -1,6 +1,6 @@
 # Best Practices on HPC Storage
 ## User Quota Limits and the myquota command
-All users have quote limits set on HPC fie systems. There are several types of quota limits, such as limits on the amount of disk space (disk quota), number of files (inode quota) etc. The default user quota limits on HPC file systems are listed [on our Data Management page](./06_data_management.md).
+All users have quote limits set on HPC fie systems. There are several types of quota limits, such as limits on the amount of disk space (disk quota), number of files (inode quota) etc. The default user quota limits on HPC file systems are listed [on our Data Management page](./06_data_management.mdx).
 
 Running out of quota causes a variety of issues such as running user jobs being interrupted or users being unable to finish the installation of packages under their home directory.
 
