@@ -52,7 +52,7 @@ Only PIs can submit RPS requests by contacting the HPC team via email ([hpc@nyu.
 -   How long can I keep the lab data in RPS?
     -   For as long as the lab pays for the RPS resources. Even if the current HPC cluster retires, the RPS volumes will be transferred to the next cluster
 -   How can I find out how much of the storage and inodes have I used in my lab RPS volume
-    -   TBD
+    -   Please contact [HPC support](mailto:hpc@nyu.edu)
 -   What kind of backups are provided?
     -   Backups are done once a day (daily incremental). Backups are kept for 30 days. This means that if something was deleted more than 30 days ago, it won't be in the back ups and thus it won't be recoverable.
 -   Where are backups stored?
