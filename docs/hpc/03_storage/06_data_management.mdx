@@ -13,7 +13,9 @@ Below is a list of file systems with their characteristics and a summary table. 
 ### Moderate Risk Data - HPC Approved
 -   The HPC Environment has been approved for storing and analyzing **Moderate Risk research data**, as defined in the [NYU Electronic Data and System Risk Classification Policy](https://www.nyu.edu/about/policies-guidelines-compliance/policies-and-guidelines/electronic-data-and-system-risk-classification.html). 
 -   **High Risk** research data, such as those that include Personal Identifiable Information (**PII**) or electronic Protected Health Information (**ePHI**) or Controlled Unclassified Information (**CUI**) **should NOT be stored in the HPC Environment**. 
--   Please note that only the Office of Sponsored Projects (OSP) and Global Office of Information Security (GOIS) are empowered to classify the risk categories of data.
+:::note
+only the Office of Sponsored Projects (OSP) and Global Office of Information Security (GOIS) are empowered to classify the risk categories of data.
+:::
 
 ### High Risk Data - Secure Research Data Environments (SRDE) Approved
 Because the HPC system is not approved for High Risk data, we recommend using an approved system like the  [Secure Research Data Environments (SRDE)](../../srde/01_getting_started/01_intro.md).
@@ -65,6 +67,7 @@ The vast file system is available on all nodes (compute, login, etc.) on Greene 
 -   ***Old file purging policy on HPC Vast:*** <ins>All files on the HPC Vast file system that have not been accessed ***for more than 60 days will be removed.***  It is a policy violation to use scripts to change the file access time.</ins> Any user found to be violating this policy will have their HPC account locked. A second violation may result in your HPC account being turned off.  
 -   To find out the user's current disk space and inode quota utilization and the distribution of files under your vast directory, please see: [Understanding user quota Limits and the myquota command.](./07_best_practices.md#user-quota-limits-and-the-myquota-command)
 -   Once a research project completes, users should archive their important files in the [HPC Archive file system](./01_intro.md).
+:::
 
 ### HPC Research Project Space
 The HPC Research Project Space (RPS) provides data storage space for research projects that is easily shared amongst collaborators, ***backed up***, and ***not subject to the old file purging policy***. HPC RPS was introduced to ease data management in the HPC environment and eliminate the need of having to frequently copying files between Scratch and Archive file systems by having all projects files under one area. ***These benefits of the HPC RPS come at a cost***. The cost is determined by the allocated disk space and the number of files (inodes). 
