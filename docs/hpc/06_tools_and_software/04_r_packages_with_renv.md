@@ -13,7 +13,7 @@ R
 ```
 
 ### Automatic deletion of your files
-This page describes the installation of packages on /scratch. One has to remember, though, that files stored in the HPC scratch file system are subject to the HPC Scratch old file purging policy: Files on the `/scratch` file system that have not been accessed for 60 or more days will be purged (read [more](../03_storage/06_data_management.md)).
+This page describes the installation of packages on /scratch. One has to remember, though, that files stored in the HPC scratch file system are subject to the HPC Scratch old file purging policy: Files on the `/scratch` file system that have not been accessed for 60 or more days will be purged (read [more](../03_storage/06_data_management.mdx)).
 
 Thus you can consider the following options:
 
