@@ -1,65 +1,69 @@
-import clsx from 'clsx';
-import Heading from '@theme/Heading';
-import styles from './styles.module.css';
+import MountainSvg from "@site/static/img/undraw_docusaurus_mountain.svg";
+import ReactSvg from "@site/static/img/undraw_docusaurus_react.svg";
+import TreeSvg from "@site/static/img/undraw_docusaurus_tree.svg";
+import Heading from "@theme/Heading";
+import clsx from "clsx";
 
-type FeatureItem = {
+import styles from "./styles.module.css";
+
+interface FeatureItem {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
-  description: JSX.Element;
-};
+  Svg: React.ComponentType<React.ComponentProps<"svg">>;
+  description: React.ReactNode;
+}
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'High Performance Computing',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: "High Performance Computing",
+    Svg: MountainSvg,
     description: (
       <>
         Seamless access to advanced computing resources, consultation services
-         and expertise for research.
+        and expertise for research.
       </>
     ),
   },
   {
-    title: 'High Speed Research Network',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: "High Speed Research Network",
+    Svg: TreeSvg,
     description: (
       <>
-        The High Speed Research Network (HSRN) is NYU's high-throughput,
+        The High Speed Research Network (HSRN) is NYU&apos;s high-throughput,
         low-latency computer network dedicated to supporting data-intensive
-        sciences. 
+        sciences.
       </>
     ),
-  },  
+  },
   {
-    title: 'Pythia',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
+    title: "Pythia",
+    Svg: TreeSvg,
     description: (
       <>
         The Pythia Platform is a suite of tools for researchers to harness
-        generative AI including a secure access to a chat portal, API access
-        to LLMs and an on-prem vector database.
+        generative AI including a secure access to a chat portal, API access to
+        LLMs and an on-prem vector database.
       </>
     ),
   },
   {
-    title: 'RTC',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: "RTC",
+    Svg: ReactSvg,
     description: (
       <>
         Research Technology Cloud is our hybrid cloud platform for researchers
-        that includes access to an on-prem OpenShift cluster and access to
-        the Google Cloud Platform.
+        that includes access to an on-prem OpenShift cluster and access to the
+        Google Cloud Platform.
       </>
     ),
   },
   {
-    title: 'SRDE',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
+    title: "SRDE",
+    Svg: ReactSvg,
     description: (
       <>
         The Secure Research Data Environment (SRDE) is a centralized secure
-         computing platform designed to support research projects that require
-          storage and computational resources specifically for sensitive data.
+        computing platform designed to support research projects that require
+        storage and computational resources specifically for sensitive data.
       </>
     ),
   },
@@ -67,7 +71,7 @@ const FeatureList: FeatureItem[] = [
 
 function Feature({ title, Svg, description }: FeatureItem) {
   return (
-    <div className={clsx('col col--4')}>
+    <div className={clsx("col col--4")}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
@@ -79,13 +83,13 @@ function Feature({ title, Svg, description }: FeatureItem) {
   );
 }
 
-export default function HomepageFeatures(): JSX.Element {
+export default function HomepageFeatures() {
   return (
     <section className={styles.features}>
       <div className="container">
         <div className="row">
-          {FeatureList.map((props, idx) => (
-            <Feature key={idx} {...props} />
+          {FeatureList.map((props, index) => (
+            <Feature key={index} {...props} />
           ))}
         </div>
       </div>
