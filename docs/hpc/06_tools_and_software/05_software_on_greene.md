@@ -225,7 +225,7 @@ There are licenses for 2 CPUs on the HPC Cluster.
 
 To submit a SAS job for running on multiple processing elements, follow below steps:
 
-1.   Create a directory on "scratch":
+1.  Create a directory on "scratch":
 ```sh
 mkdir /scratch/<net_id>/example
 cd /scratch/<net_id>/example

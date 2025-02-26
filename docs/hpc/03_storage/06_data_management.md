@@ -96,9 +96,7 @@ However, there are limits to the data transfer rate in moving to/from Google Dri
 Please read the [Instructions on how to use cloud storage within the NYU HPC Environment](./12_transferring_cloud_storage_data_with_rclone.md). 
 
 ### HPC Storage Mounts Comparison Table
-<div>
 <iframe width="100%" height="300em" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT-q0rRueYg1Be_gcWSghB-GGFDonP8DaXNnm8Qi036w-Vi_l7CCOav4IPxi1yZy8TSnTRFy7S5dNTJ/pubhtml?widget=true&amp;headers=false"></iframe>
-</div>
 
 ## Data Management Subpages
 ### Data Transfers 
