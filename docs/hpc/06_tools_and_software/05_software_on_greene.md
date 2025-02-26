@@ -8,7 +8,7 @@ There are different types of software packages available
 -   Singularity Containers
     -   You can find those already built and ready to use, at location `/scratch/work/public/singularity/`
     -   For more information on running software with Singularity, [click here](../06_tools_and_software/06_singularity_run_custom_applications_with_containers.md).
--  Python/R/Julia packages can be installed by a user 
+-   Python/R/Julia packages can be installed by a user 
 
 If you need another linux program installed, please contact us at [hpc@nyu.edu](mailto:hpc@nyu.edu) 
 
@@ -72,9 +72,9 @@ $ module load schrodinger/2021-1
 ```
 #### Using SCHRODINGER on NYU Lab Computers
 
-1. Request your account at: [https://www.schrodinger.com/request-account](https://www.schrodinger.com/request-account)
-2. Download the software at: [https://www.schrodinger.com/downloads/releases](https://www.schrodinger.com/downloads/releases)
-3. [Contact NYU-HPC team](mailto:hpc@nyu.edu)  to request your license file.
+1.  Request your account at: [https://www.schrodinger.com/request-account](https://www.schrodinger.com/request-account)
+2.  Download the software at: [https://www.schrodinger.com/downloads/releases](https://www.schrodinger.com/downloads/releases)
+3.  [Contact NYU-HPC team](mailto:hpc@nyu.edu)  to request your license file.
 
 These license servers are accessible from NYU subnet.
 
@@ -161,18 +161,18 @@ load the relevant module in your batch job submission script:
 module load comsol/5.6.0.280
 ```
 To submit a COMSOL job in a parallel fashion, running on multiple processing cores, follow the steps below:
-1. Create a directory on "scratch" as given below.
+1.  Create a directory on "scratch" as given below.
 ```sh
 mkdir /scratch/<net_id>/example
 cd /scratch/<net_id>/example
 ```
-2. Copy example files to your newly created directory
+2.  Copy example files to your newly created directory
 ```sh
 cp /scratch/work/public/examples/comsol/run-comsol.sbatch /scratch/<net_id>/example/
 cp /scratch/work/public/examples/comsol/test-input.mph /scratch/<net_id>/example/
 ```
-3. Edit the slurm batch script file (run-comsol.sbatch) to match your case (for example chance location of the run directory).
-4. Once the slurm batch script file is ready, it can be submitted to the job scheduler using sbatch. After successful completion of job, verify output log file for detail output information.
+3.  Edit the slurm batch script file (run-comsol.sbatch) to match your case (for example chance location of the run directory).
+4.  Once the slurm batch script file is ready, it can be submitted to the job scheduler using sbatch. After successful completion of job, verify output log file for detail output information.
 ```sh
 sbatch run-comsol.sbatch
 ```
@@ -189,18 +189,18 @@ In the example below the module is loaded already in the sbatch script.
 :::
 
 To submit a batch Mathematica job for running in a parallel mode on multiple processing cores, follow below steps:
-1. Create a directory on "scratch" as given below.
+1.  Create a directory on "scratch" as given below.
 ```sh
 mkdir /scratch/<net_id>/example
 cd /scratch/<net_id>/example
 ```
-2. Copy example files to your newly created directory.
+2.  Copy example files to your newly created directory.
 ```sh
 cp /scratch/work/public/examples/mathematica/basic/example.m /scratch/<net_id>/example/
 cp /scratch/work/public/examples/mathematica/basic/run-mathematica.sbatch /scratch/<net_id>/example
 ```
-3. Edit the slurm batch script file (run-mathematica.sbatch) to match your case (for example chance location of the run directory).
-4. Once the sbatch script file is ready, it can be submitted to the job scheduler using sbatch. After successful completion of job, verify output log file generated.
+3.  Edit the slurm batch script file (run-mathematica.sbatch) to match your case (for example chance location of the run directory).
+4.  Once the sbatch script file is ready, it can be submitted to the job scheduler using sbatch. After successful completion of job, verify output log file generated.
 ```sh
 sbatch run-mathematica.sbatch
 ```
@@ -225,18 +225,18 @@ There are licenses for 2 CPUs on the HPC Cluster.
 
 To submit a SAS job for running on multiple processing elements, follow below steps:
 
-1. Create a directory on "scratch":
+1.   Create a directory on "scratch":
 ```sh
 mkdir /scratch/<net_id>/example
 cd /scratch/<net_id>/example
 ```
-2. Copy example files to your newly created directory.
+2.  Copy example files to your newly created directory.
 ```sh
 cp /scratch/work/public/examples/sas/test.sas  /scratch/<net_id>/example/
 cp /scratch/work/public/examples/sas/test2.sas  /scratch/<net_id>/example/
 cp /scratch/work/public/examples/sas/run-sas.sbatch  /scratch/<net_id>/example/
 ```
-3. Submit as shown below. After successful completion of job, verify output log file generated.
+3.  Submit as shown below. After successful completion of job, verify output log file generated.
 ```sh
 sbatch run-sas.sbatch
 ```
@@ -268,17 +268,17 @@ Stata is a command and menu-driven software package for statistical analysis. It
 
 To submit a STATA job for running on multiple processing elements, follow below steps.
 
-1. Create a directory on "scratch":
+1.  Create a directory on "scratch":
 ```sh
 mkdir /scratch/<net_id>/example
 cd /scratch/<net_id>/example
 ```
-2. Copy example files to your newly created directory.
+2.  Copy example files to your newly created directory.
 ```sh
 cp /scratch/work/public/examples/stata/run-stata.sbatch  /scratch/<net_id>/example/
 cp /scratch/work/public/examples/stata/stata-test.do  /scratch/<net_id>/example/
 ```
-3. Submit using sbatch. After successful completion of job, verify output log file generated.
+3.  Submit using sbatch. After successful completion of job, verify output log file generated.
 ```sh
 sbatch run-stata.sbatch
 ```
@@ -292,14 +292,14 @@ The NYU Gaussian license only covers PIs at the Washington Square Park campus. W
 
 To submit a Gaussian job for running on multiple processing elements, follow below steps.
 
-1. Create a directory on "scratch":
+1.  Create a directory on "scratch":
 ```sh
 mkdir /scratch/<net_id>/example
 cd /scratch/<net_id>/example   #Copy example files to your newly created directory.
 cp /scratch/work/public/examples/gaussian/basic/test435.com  /scratch/<net_id>/example/
 cp /scratch/work/public/examples/gaussian/basic/run-gaussian.sbatch  /scratch/<net_id>/example/
 ```
-2. Once the sbatch script file is ready, it can be submitted to the job scheduler using sbatch. After successful completion of job, verify output log file generated.
+2.  Once the sbatch script file is ready, it can be submitted to the job scheduler using sbatch. After successful completion of job, verify output log file generated.
 ```sh
 sbatch run-gaussian.sbatch
 ```
@@ -311,17 +311,17 @@ Knitro is a commercial software package for solving large scale mathematical opt
 
 To submit a Knitro job for running on multiple processing elements, follow below steps.
 
-1. Create a directory on "scratch":
+1.  Create a directory on "scratch":
 ```sh
 mkdir /scratch/<net_id>/example
 cd /scratch/<net_id>/example
 ```
-2. Copy example files to your newly created directory.
+2.  Copy example files to your newly created directory.
 ```sh
 cp /scratch/work/public/examples/knitro/knitro.py /scratch/<net_id>/example/
 ```
-3. There is no sample sbatch script available for knitro.
-4. After creating your own sbatch script you can execute it as follows:
+3.  There is no sample sbatch script available for knitro.
+4.  After creating your own sbatch script you can execute it as follows:
 ```sh
 sbatch <script>.sbatch
 ```

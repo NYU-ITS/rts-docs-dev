@@ -9,10 +9,10 @@ For a detailed introduction on Singularity, visit their official site [here](htt
 
 ## why do we use Singularity
 There are multiple reasons to use Singularity on the HPC clusters:
-1. Security: Singularity provides a layer of security as it does not require any root access on our clusters. This makes it safer against malware and bad scripts that might jeopardize the outer system. Thus we only support Singularity on our clusters(there are not other options such as Kubernetes or Docker on our clusters right now)
-2. Containerization: Singularity will run all your images(packaged and pre-built programs) inside of its containers, each container works like a small vm. They contain all the required environment and files of a single Linux kernel and you don't have to worry about any pre-installation nonsense
-3. Inter-connectivity: Containers are able to talk to each other, as well as the home system, so while each container has its own small space, they are still a part of a big interconnected structure. Thus enabling you to connect your programs.
-4. Accessibility: Probably the most important feature of all, Singularity allows you to run your program in 2 to 3 simple steps, as shown in the topic how to run a singularity container. 
+1.  Security: Singularity provides a layer of security as it does not require any root access on our clusters. This makes it safer against malware and bad scripts that might jeopardize the outer system. Thus we only support Singularity on our clusters(there are not other options such as Kubernetes or Docker on our clusters right now)
+2.  Containerization: Singularity will run all your images(packaged and pre-built programs) inside of its containers, each container works like a small vm. They contain all the required environment and files of a single Linux kernel and you don't have to worry about any pre-installation nonsense
+3.  Inter-connectivity: Containers are able to talk to each other, as well as the home system, so while each container has its own small space, they are still a part of a big interconnected structure. Thus enabling you to connect your programs.
+4.  Accessibility: Probably the most important feature of all, Singularity allows you to run your program in 2 to 3 simple steps, as shown in the topic how to run a singularity container. 
 
 ## how to run a singularity container
 There are 3 steps to run a Singularity container on our clusters:
@@ -81,9 +81,9 @@ For those that know how docker containers are built, you can build docker contai
 
 ## Singularity vs Docker
 Why are there so many mentions of Docker? The reason is that Singularity is essentially the same as Docker and you don't need to relearn Singularity if you already have experience with Docker. Now let's get into some pros and cons between the two programs.
-1. Docker is more accepted commercially than Singularity. You can download and run Docker on your own computer with any operating system and build containers with ease while Singularity is used in a more academic setting. Singularity only supports Linux operating systems and cannot run on a windows linux kernel(your windows ubuntu), so it is much more limited.
-2. However, Docker requires root or admin access for the operating system it deploys on, and our clusters do not offer that access to any software that requires this criteria. Thus Docker is not available on the clusters and Singularity is.
-3. A silver lining in all of this is that Singularity fully supports docker images and you can do everything in docker and push your image to docker hub and pull them on the clusters. Thus making sure that you don't need to relearn Singularity all over again and can just use it through the simplest of commands in this wiki.
+1.  Docker is more accepted commercially than Singularity. You can download and run Docker on your own computer with any operating system and build containers with ease while Singularity is used in a more academic setting. Singularity only supports Linux operating systems and cannot run on a windows linux kernel(your windows ubuntu), so it is much more limited.
+2.  However, Docker requires root or admin access for the operating system it deploys on, and our clusters do not offer that access to any software that requires this criteria. Thus Docker is not available on the clusters and Singularity is.
+3.  A silver lining in all of this is that Singularity fully supports docker images and you can do everything in docker and push your image to docker hub and pull them on the clusters. Thus making sure that you don't need to relearn Singularity all over again and can just use it through the simplest of commands in this wiki.
 
 Good luck with Singularity, and have fun!
 

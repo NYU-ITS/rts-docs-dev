@@ -239,7 +239,7 @@ sbatch --nodes=2 --ntasks-per-node=4 my_script.sh
 
 ### Options to set the job environment: 
 
-- `--export=VAR1,VAR2="some value",VAR3`
+-   `--export=VAR1,VAR2="some value",VAR3`
     -   Pass variables to the job, either with a specific value (the `VAR=` form) or from the submitting environment ( without "`=`" )
 
     -   `--get-user-env`\[=timeout]\[mode]
@@ -431,24 +431,24 @@ There are three NVIDIA GPU types and one AMD GPU type that can be used.
 
 **To request NVIDIA GPUs**
 
-- RTX8000
+-   RTX8000
 ```sh
 #SBATCH --gres=gpu:rtx8000:1
 ```
 
-- V100 
+-   V100 
 ```sh
 #SBATCH --gres=gpu:v100:1
 ```
 
-- A100
+-   A100
 ```sh
 #SBATCH --gres=gpu:a100:1
 ```
 
 **To request AMD GPUs**
 
-- MI50
+-   MI50
 ```sh
 #SBATCH --gres=gpu:mi50:1
 ```
@@ -501,15 +501,15 @@ The majority of the jobs on the NYU HPC cluster are submitted with the sbatch co
 
 There are cases when users need to run applications interactively ( interactive jobs ). Interactive jobs allow the users to enter commands and data on the command line (or in a graphical interface ), providing an experience similar to working on a desktop or laptop. Examples of common interactive tasks are:
 
-- Editing files
+-   Editing files
 
-- Compiling and debugging code
+-   Compiling and debugging code
 
-- Exploring data, to insights
+-   Exploring data, to insights
 
-- A graphical window to run visualization
+-   A graphical window to run visualization
 
-- etc
+-   etc
 
 To support interactive use in a batch environment, Slurm allows for interactive batch jobs.
 
@@ -549,23 +549,23 @@ cd $SLURM_SUBMIT_DIR
 
 (Don't just submit the job, but also wait for it to start and connect `stdout`, `stderr` and `stdin` to the current terminal)
 
-- `-nnum`
-    - Specify the number of tasks to run, eg. -n4. Default is one CPU core per task
+-   `-nnum`
+    -   Specify the number of tasks to run, eg. -n4. Default is one CPU core per task
 
-- `-ttime`
-    - Request job running duration, eg. `-t1:30:00`
+-   `-ttime`
+    -   Request job running duration, eg. `-t1:30:00`
 
-- `--mem=MB`
-    - Specify the real memory required per node in MegaBytes, eg. `--mem=4000`
-    - `--pty`
-    - Execute the first task in pseudo terminal mode, eg. `--pty /bin/bash`, to start a bash command shell
+-   `--mem=MB`
+    -   Specify the real memory required per node in MegaBytes, eg. `--mem=4000`
+    -   `--pty`
+    -   Execute the first task in pseudo terminal mode, eg. `--pty /bin/bash`, to start a bash command shell
 
-- `--gres=gpu:N`
-    - To request `N` number of GPUs
+-   `--gres=gpu:N`
+    -   To request `N` number of GPUs
 
-- `--x11`
-    - Enable X forwarding, so programs using a GUI can be used during the session (provided you have X forwarding to your workstation set up)
-    - To leave an interactive batch session, type `exit` at the command prompt
+-   `--x11`
+    -   Enable X forwarding, so programs using a GUI can be used during the session (provided you have X forwarding to your workstation set up)
+    -   To leave an interactive batch session, type `exit` at the command prompt
 
 Certain tasks need user iteraction - such as debugging and some GUI-based applications. However the HPC clusters rely on batch job scheduling to efficiently allocate resources. Interactive batch jobs allow these apparently conflicting requirements to be met.
 
