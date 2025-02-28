@@ -1,3 +1,3 @@
 # OpenWebUI
 
-Provided as a way to access all external LLMs via a GUI.
+We are working on providing an NYU hosted instance of [OpenWebUI](https://docs.openwebui.com/). More details about this will be provided soon.

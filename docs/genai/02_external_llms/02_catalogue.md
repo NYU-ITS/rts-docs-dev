@@ -1,4 +1,6 @@
-# External models listed by provider
+# LLM Catalogue
+
+We currently facilitate access to the following externally hosted LLMs:
 
 ## OpenAI
 -   gpt-4o-mini
