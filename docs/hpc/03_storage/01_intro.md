@@ -1,10 +1,8 @@
 # HPC Storage
 
-The NYU HPC clusters are served by a General Parallel File System (GPFS) cluster. 
+The NYU HPC clusters are served by a General Parallel File System (GPFS) cluster and an all Flash VAST storage cluster.
 
 The NYU HPC team supports data storage, transfer, and archival needs on the HPC clusters, as well as collaborative research services like the Research Project Space (RPS).
-
-Team is also piloting all flash VAST storage.
 
 ## Highlights
 -   9.5 PB Total GPFS Storage
