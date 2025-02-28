@@ -48,8 +48,12 @@ Every user has a dedicated scratch directory (**/scratch/$USER**) with **5 TB** 
 
 The scratch file system is available on all nodes (compute, login, etc.) on Greene as well as Data Transfer Node (gDTN).
 
+:::warning
+There are **No Back ups of the scratch file system.** ***Files that were deleted accidentally or removed due to storage system failures CAN NOT be recovered.***
+:::
+
 :::note
--   There are ***No Back ups*** of the scratch file system. ***Files that were deleted accidentally or removed due to storage system failures CAN NOT be recovered.***
+
 -   Since there are ***no back ups of HPC Scratch file system***, users should not put important source code, scripts, libraries, executables in `/scratch`. These important files should be stored in file systems that are backed up, such as `/home` or [Research Project Space (RPS)](./05_research_project_space.md). Code can also be stored in a ***git*** repository.
 -   ***Old file purging policy on HPC Scratch:*** <ins>All files on the HPC Scratch file system that have not been accessed ***for more than 60 days*** will be removed.  It is a policy violation to use scripts to change the file access time.</ins> Any user found to be violating this policy will have their HPC account locked. A second violation may result in your HPC account being turned off.  
 -   To find out the user's current disk space and inode quota utilization and the distribution of files under your scratch directory, please see: [Understanding user quota Limits and the myquota command.](./07_best_practices.md#user-quota-limits-and-the-myquota-command)
@@ -105,15 +109,4 @@ Please read the [Instructions on how to use cloud storage within the NYU HPC Env
 ### HPC Storage Mounts Comparison Table
 <iframe width="100%" height="300em" src="https://docs.google.com/spreadsheets/d/e/2PACX-1vT-q0rRueYg1Be_gcWSghB-GGFDonP8DaXNnm8Qi036w-Vi_l7CCOav4IPxi1yZy8TSnTRFy7S5dNTJ/pubhtml?widget=true&amp;headers=false"></iframe>
 
-## Data Management Subpages
-### Data Transfers 
-[Link to Data Transfers Page](./03_data_transfers.md)
-
-### Sharing Data on HPC 
-[Link to Sharing Data on HPC Page](./13_sharing_data_on_hpc.md)
-
-### Research Project Space 
-[Link to Research Project Space Page](./05_research_project_space.md)
-
-### Squash File System and Singularity
-[Link to Squash File System and Singularity Page](../07_containers/04_squash_file_system_and_singularity.md)
+Please see the next page for best practices for data management on NYU HPC systems.
