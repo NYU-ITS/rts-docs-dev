@@ -10,4 +10,4 @@ The NYU HPC team supports data storage, transfer, and archival needs on the HPC 
     -   Up to 650k input/output operations per second (IOPS)
 -   Research Project Space (RPS): RPS volumes provide working spaces for sharing data and code amongst project or lab members
 
-![disk drive image](./static/benjamin-lehman-GNyjCePVRs8-unsplash.jpg)
+![disk drive image](./static/disk_drive_image.jpg)
