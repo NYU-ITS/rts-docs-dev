@@ -34,7 +34,7 @@ module load anaconda3/2020.07
 Conda init can create problems with package installation, so we suggest using `source activate` instead of `conda activate`, even though conda activate is considered a best practice by the Anaconda developers.
 
 ### Automatic deletion of your files
-This page describes the installation of packages on /scratch. One has to remember, though, that files stored in the HPC scratch file system are subject to the HPC Scratch old file purging policy: Files on the /scratch file system that have not been accessed for 60 or more days will be purged (read more about [Data Management](../03_storage/06_data_management.md).
+This page describes the installation of packages on /scratch. One has to remember, though, that files stored in the HPC scratch file system are subject to the HPC Scratch old file purging policy: Files on the /scratch file system that have not been accessed for 60 or more days will be purged (read more about [Data Management](../03_storage/01_intro_and_data_management.mdx).
 
 Thus you can consider the following options
 

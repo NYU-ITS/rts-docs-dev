@@ -16,9 +16,9 @@ Slurm offers many utility commands to work with, some of the most popularly used
 
 Run a parallel job on cluster managed by Slurm, can be used:
 
-1. Individual job submission where resources are allocated.
-2. In `sbatch` batch scripts as `job steps` making use of the allocated resource pool.
-3. within `salloc` instance making use of the resource pool.
+1.  Individual job submission where resources are allocated.
+2.  In `sbatch` batch scripts as `job steps` making use of the allocated resource pool.
+3.  within `salloc` instance making use of the resource pool.
 
 ```sh
 man srun # for more information

@@ -12,11 +12,11 @@ In NYU HPC clusters the users coming from many departments with various discipli
 
 The Slurm software system is a resource manager and a job scheduler, which is designed to allocate resources and schedule jobs. Slurm is an open-source software, with a large user community, and has been installed on many top 500 supercomputers.
 
-- This tutorial assumes you have a NYU HPC account. If not, you may find the steps to apply for an account on the [Getting and renewing an account page][getting and renewing an account page].
+-   This tutorial assumes you have a NYU HPC account. If not, you may find the steps to apply for an account on the [Getting and renewing an account page](../01_getting_started/02_getting_and_renewing_an_account.md).
 
-- It also assumes you are comfortable with Linux command-line environment. To learn about linux please read \[Tutorial 1].
+-   It also assumes you are comfortable with Linux command-line environment. To learn about linux please read \[Tutorial 1].
 
-- Please review the \[Hardware Specs page] for more information on Greene's hardware specifications.
+-   Please review the \[Hardware Specs page] for more information on Greene's hardware specifications.
 
 ## Slurm Commands
 
@@ -30,23 +30,23 @@ To use a given software package, you load the corresponding module. Unloading th
 
 Below is a list of modules and their associated functions:
 
-- `module load <module-name>` : loads a module
-    - For example : `module load python3`
+-   `module load <module-name>` : loads a module
+    -   For example : `module load python3`
 
-- `module unload <module-name>` : unloads a module
-    - For example : `module unload python3`
+-   `module unload <module-name>` : unloads a module
+    -   For example : `module unload python3`
 
-- `module show <module-name>` : see exactly what effect loading a module will have with 
+-   `module show <module-name>` : see exactly what effect loading a module will have with 
 
-- `module purge` : remove all loaded modules from your environment
+-   `module purge` : remove all loaded modules from your environment
 
-- `module whatis <module-name>` : Find out more about a software package
+-   `module whatis <module-name>` : Find out more about a software package
 
-- `module list` : check which modules are currently loaded in your environment
+-   `module list` : check which modules are currently loaded in your environment
 
-- `module avail` : check what software packages are available
+-   `module avail` : check what software packages are available
 
-- `module help <module-name>` : A module file may include more detailed help for software package
+-   `module help <module-name>` : A module file may include more detailed help for software package
 
 ## Batch Job Example
 
@@ -153,15 +153,15 @@ cat slurm-<job_ID>.out
 
 While the majority of the jobs on the cluster are submitted with the `sbatch` command, and executed in the background, there are also methods to run applications interactively throughthe `srun` command. Interactive jobs allow the users to enter commands and data on the command line (or in a graphical interface), providing an experience similar to working on a desktop or laptop. Examples of common interactive tasks are:
 
-- Editing files
+-   Editing files
 
-- Compiling and debugging code
+-   Compiling and debugging code
 
-- Exploring data, to obtain a rough idea of characteristics on the topic
+-   Exploring data, to obtain a rough idea of characteristics on the topic
 
-- Getting graphical windows to run visualization
+-   Getting graphical windows to run visualization
 
-- Running software tools in interactive sessions
+-   Running software tools in interactive sessions
 
 Interactive jobs also help avoid issues with the login nodes. If you are working on a login node and your job is too IO intensive, it may be removed without notice. Running interactive jobs on compute nodes does not impact many users and in addition provides access to resources that are not available on the login nodes, such as interactive access to GPUs, high memory, exclusive access to all the resources of a compute node, etc.
 
