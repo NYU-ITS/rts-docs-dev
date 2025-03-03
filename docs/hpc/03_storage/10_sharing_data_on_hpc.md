@@ -17,7 +17,7 @@ This level of access can be granted to
 
 ACL allows to grant the same type access without modifying file ownership and without changing POSIX permissions. 
 
-##Viewing ACL
+## Viewing ACL
 Use `getfacl` to retrieve access permissions for a file. 
 ```sh
 $ getfacl myfile.txt
