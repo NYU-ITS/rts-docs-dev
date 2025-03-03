@@ -1,6 +1,6 @@
 # Best Practices on HPC Storage
 ## User Quota Limits and the myquota command
-All users have quote limits set on HPC fie systems. There are several types of quota limits, such as limits on the amount of disk space (disk quota), number of files (inode quota) etc. The default user quota limits on HPC file systems are listed [on our Data Management page](./06_data_management.mdx).
+All users have quote limits set on HPC fie systems. There are several types of quota limits, such as limits on the amount of disk space (disk quota), number of files (inode quota) etc. The default user quota limits on HPC file systems are listed [on our Data Management page](./01_intro_and_data_management.mdx#hpc-storage-mounts-comparison-table).
 
 Running out of quota causes a variety of issues such as running user jobs being interrupted or users being unable to finish the installation of packages under their home directory.
 
@@ -40,7 +40,7 @@ $ for d in $(find $(pwd) -maxdepth 1 -mindepth 1 -type d | sort -u); do n_files=
 ## Large number of small files
 In case your dataset or workflow requires to use large number of small files, this can create a bottleneck due to read/write rates. 
 
-Please refer to our page on working with a [large number of files](./08_large_number_of_small_files.md) to learn about some of the options we recommend to consider.
+Please refer to our page on working with a [large number of files](./07_large_number_of_small_files.md) to learn about some of the options we recommend to consider.
 
 ## Installing Python packages
 Your home directory has relatively small number of inodes.

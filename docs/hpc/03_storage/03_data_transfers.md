@@ -67,8 +67,9 @@ rclone - rsync for cloud storage, is a command line program to sync files and di
 One can use Open OnDemand interface to upload data.
 However, please use it only for small data!
 
-## Other tools
+:::tip
 Please use Data-Transfer nodes while moving large data
+:::
 
 ### FDT
 FDT stands for "Fast Data Transfer". It is a command line application written in Java. With the plugin mechanism, FDT allows users to load user-defined classes for Pre- and Post-Processing of file transfers. Users can start their own server processes. If you have use cases for FDT, visit the download page to get `fdt.jar` to start. Please contact [hpc@nyu.edu](mailto:hpc@nyu.edu) for any questions. 
