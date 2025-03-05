@@ -1,8 +1,10 @@
+import Link from "@docusaurus/Link";
 import MountainSvg from "@site/static/img/undraw_docusaurus_mountain.svg";
 import ReactSvg from "@site/static/img/undraw_docusaurus_react.svg";
 import TreeSvg from "@site/static/img/undraw_docusaurus_tree.svg";
 import Heading from "@theme/Heading";
 import clsx from "clsx";
+import { type ComponentProps } from "react";
 
 import styles from "./styles.module.css";
 
@@ -10,6 +12,7 @@ interface FeatureItem {
   title: string;
   Svg: React.ComponentType<React.ComponentProps<"svg">>;
   description: React.ReactNode;
+  to?: ComponentProps<typeof Link>["to"];
 }
 
 const FeatureList: FeatureItem[] = [
@@ -22,6 +25,7 @@ const FeatureList: FeatureItem[] = [
         and expertise for research.
       </>
     ),
+    to: "/docs/hpc/getting_started/intro/",
   },
   {
     title: "High Speed Research Network",
@@ -33,6 +37,7 @@ const FeatureList: FeatureItem[] = [
         sciences.
       </>
     ),
+    to: "/docs/hsrn/intro/",
   },
   {
     title: "Pythia",
@@ -44,6 +49,7 @@ const FeatureList: FeatureItem[] = [
         LLMs and an on-prem vector database.
       </>
     ),
+    to: "/docs/genai/getting_started/intro/",
   },
   {
     title: "RTC",
@@ -55,6 +61,7 @@ const FeatureList: FeatureItem[] = [
         Google Cloud Platform.
       </>
     ),
+    to: "/docs/rtc/intro/",
   },
   {
     title: "SRDE",
@@ -66,12 +73,15 @@ const FeatureList: FeatureItem[] = [
         storage and computational resources specifically for sensitive data.
       </>
     ),
+    to: "/docs/srde/getting_started/intro/",
   },
 ];
 
-function Feature({ title, Svg, description }: FeatureItem) {
+function Feature({ title, Svg, description, to }: FeatureItem) {
+  const Wrapper = to ? Link : "div";
+
   return (
-    <div className={clsx("col col--4")}>
+    <Wrapper className={clsx("col col--4", to && styles.featureLink)} to={to}>
       <div className="text--center">
         <Svg className={styles.featureSvg} role="img" />
       </div>
@@ -79,7 +89,7 @@ function Feature({ title, Svg, description }: FeatureItem) {
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>
       </div>
-    </div>
+    </Wrapper>
   );
 }
 
